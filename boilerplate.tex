@@ -1,0 +1,117 @@
+\documentclass[12pt, addpoints]{exam}
+\usepackage{mayencourt}
+\usepackage{xpatch}
+\xapptocmd{\@item}{\label{en:\arabic{page}\alph{enumi}}}{}{}
+\pgfplotsset{compat=1.15}
+%\usepgfplotslibrary{statistics}
+%\usetikzlibrary{arrows}
+\usetikzlibrary{patterns}
+
+\pagestyle{headandfoot}
+\extraheadheight{1cm}
+\runningheadrule
+\firstpageheader{\huge \textbf{varCollege}}
+                {    \textbf{ Course : \\
+                      Date:\\
+                      Number of questions :\\
+                      varCurso}
+                 }
+                {   \textbf{varCurso\\
+                    varDate\\
+                    varNQ\\
+                    Time: varTime}}
+\runningheader{\huge \textbf{varCollege}}
+                {    \textbf{ Course : \\
+                      Date:\\
+                      Number of questions :\\
+                      varCurso}
+                 }
+                {   \textbf{varCurso\\
+                    varDate\\
+                    varNQ\\
+                    Time: varTime}}
+
+
+
+
+\begin{document}
+\printanswers
+
+\vspace{5cm}
+
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+&\\
+\makebox[0.4\textwidth]{Name : \enspace\hrulefill}    & \makebox[0.4\textwidth]{Student code : \enspace\hrulefill}  \\
+&\\
+\makebox[0.4\textwidth]{Surnames : \enspace\hrulefill}     & 
+\makebox[0.4\textwidth]{Major : \enspace\hrulefill}\\
+&\\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{5cm}
+
+\begin{center}
+\gradetable[h][questions]
+\end{center}
+
+\vspace{2cm}
+
+\begin{flushright}
+\begin{tabular}{|l|p{2cm}|}
+\hline
+     &  \\
+    Grade & \\
+     & \\
+\hline
+\end{tabular}
+\end{flushright}
+
+\newpage
+
+
+
+\vspace{3cm}
+
+\textbf{Instructions :}
+\begin{itemize}
+% parse varRules ,  for each line break character, insert a |item ; close itemize when end of file char is found
+    \item Tous les calculs et développements des solutions doivent figurer sur les feuilles de données au propre. Les réponses sans développement mathématique ne sont pas prises en compte. Un espace réponse supplémentaire est disponible en pages 14 et 15.
+    \item Les développements doivent être suffisamment détaillés pour que l'on puisse suivre le raisonnement et les opérations aboutissant au résultat.
+    \item Les réponses des exercices seront simplifiées au maximum.
+\end{itemize}
+
+\vspace{5cm}
+
+\begin{tabular}{ll}
+Signatures : & \makebox[0.4\textwidth]{ \enspace\hrulefill}	\\
+&\\
+&\\
+& \makebox[0.4\textwidth]{ \enspace\hrulefill}\\
+\end{tabular}
+
+\newpage
+
+\begin{questions}
+\begin {enumerate}
+%for loop. For each question, insert the following
+\question question[i].title \newline
+question[i].description
+\newpage
+\end{enumerate}
+\textbf{Resources}
+var.Specs
+
+\newpage
+
+
+
+\begin{solution}
+%for each question, insert here 
+questions[i].varSolution
+\end{solution}
+\end{questions}
+\end{document}
