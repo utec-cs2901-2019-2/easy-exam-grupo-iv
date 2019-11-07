@@ -1,4 +1,5 @@
 package model;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -8,12 +9,13 @@ public class User {
     String email;
     String last_name;
     String name;
-    String password ;
+    String password;
     String phone;
 
-    public User(){    }
+    public User() {
+    }
 
-    public User(String email, String last_name, String name, String password, String phone ){
+    public User(String email, String last_name, String name, String password, String phone) {
         this.setEmail(email);
         this.setLast_name(last_name);
         this.setName(name);
