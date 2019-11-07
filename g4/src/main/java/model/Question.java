@@ -29,6 +29,8 @@ public class Question {
 
     public void like() {
         score++;
+
+
     }
 
     public void dislike() {
