@@ -9,6 +9,7 @@ export class Teacher implements User {
   password: string;
   phone: string;
   exams: Exam[];
+  isAdmin: boolean;
   points: number;
   questions: Question[];
   reportedQuestions: Question[];

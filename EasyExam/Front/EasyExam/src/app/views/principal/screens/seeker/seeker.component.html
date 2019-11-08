@@ -1,1 +1,3 @@
-<p>seeker works!</p>
+<p *ngIf="auth.loggedIn()">User Logged</p>
+<p *ngIf="!auth.loggedIn()">User Not Logged</p>
+<button *ngIf="auth.loggedIn()" (click)="auth.logout()">Logout</button>

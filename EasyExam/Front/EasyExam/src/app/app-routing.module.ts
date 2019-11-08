@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './views/auth/login/login.component';
 import { RegisterComponent } from './views/auth/register/register.component';
+import { SeekerComponent } from './views/principal/screens/seeker/seeker.component';
 
 const routes: Routes = [
   {
-    path: '*',
-    redirectTo: 'login'
+    path: '',
+    component: SeekerComponent
   },
   {
     path: 'login',
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'login'
   }
 ];
 
