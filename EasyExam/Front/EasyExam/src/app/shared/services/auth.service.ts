@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+
 import { Injectable } from '@angular/core';
 import { HttpService } from './http.service';
 import { User } from '../interfaces/user';
@@ -10,16 +12,18 @@ export class AuthService {
 A-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$`;
   admin: boolean;
   user: User;
-  constructor(private http: HttpService) { }
+  constructor(private http: HttpService, private router: Router) { }
   login(email: string, password: string): boolean {
     this.user = this.http.login(email, password);
     if (this.user.email === '') {
       return false;
     }
+    this.router.navigate(['']);
     return true;
   }
   register(Name: string, Email: string, Password: string): boolean {
     this.http.register(Name, Email, Password)
+    this.router.navigate(['']);
     this.user = {
       email : Email,
       lastName : '',
@@ -33,6 +37,7 @@ A-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$`;
   }
   logout() {
     localStorage.removeItem('access_token');
+    this.router.navigate(['login']);
     this.user = {
       email : '',
       lastName : '',

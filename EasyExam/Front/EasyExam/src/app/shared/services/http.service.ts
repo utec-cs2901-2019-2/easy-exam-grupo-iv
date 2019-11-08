@@ -41,7 +41,7 @@ export class HttpService {
         console.log(err);
       }
     );
-    return user;
+    return {...user};
   }
   register(Name: string, Email: string, Password: string) {
     this.http.post<{token: string}>(this.url + this.registerurl, {name: Name, email: Email, password: Password})

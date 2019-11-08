@@ -23,7 +23,11 @@ public class AuthController {
   LoginResponse login(@RequestBody LoginRequest request){
     Optional<Teacher> value = teacherRepository.findById(request.email);
     if(!value.isEmpty()) {
-      return new LoginResponse(value.get(), "Ingrese Token Aqui");
+      if(value.get().getPassword().equals(request.password)) {
+        return new LoginResponse(value.get(), "Ingrese Token Aqui");
+      } else {
+        return new LoginResponse(new Teacher("","","","","", false), "Ingrese Token Aqui");
+      }
     } else {
       return new LoginResponse(new Teacher("","","","","", false), "Ingrese Token Aqui");
     }

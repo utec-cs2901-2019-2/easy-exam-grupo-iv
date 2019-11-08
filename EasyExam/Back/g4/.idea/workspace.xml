@@ -10,37 +10,14 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/easyexam/g4/G4Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/easyexam/g4/G4Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/Category.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/Exam.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/Question.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/Reports.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/Subcategory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/Teacher.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/easyexam/g4/G4Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/easyexam/g4/G4Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/easyexam/g4/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/easyexam/g4/controllers/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/easyexam/g4/model/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Exam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/easyexam/g4/model/Exam.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/easyexam/g4/model/Question.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Reports.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/easyexam/g4/model/Reports.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Subcategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/easyexam/g4/model/Subcategory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Teacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/easyexam/g4/model/Teacher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/api/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/easyexam/g4/model/api/LoginRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/api/LoginResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/easyexam/g4/model/api/LoginResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/api/RegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/easyexam/g4/model/api/RegisterRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/api/RequestResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/easyexam/g4/model/api/RegisterResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/repository/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/easyexam/g4/model/repository/CategoryRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/repository/ExamRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/easyexam/g4/model/repository/ExamRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/repository/QuestionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/easyexam/g4/model/repository/QuestionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/repository/SubcategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/easyexam/g4/model/repository/SubcategoryRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/repository/TeacherRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/easyexam/g4/model/repository/TeacherRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Front/EasyExam/src/app/shared/classes/admin.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Front/EasyExam/src/app/shared/classes/admin.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Front/EasyExam/src/app/shared/classes/teacher.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Front/EasyExam/src/app/shared/classes/teacher.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Front/EasyExam/src/app/shared/interfaces/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Front/EasyExam/src/app/shared/interfaces/user.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Front/EasyExam/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Front/EasyExam/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Front/EasyExam/src/app/shared/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Front/EasyExam/src/app/shared/services/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Front/EasyExam/src/app/shared/services/http.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Front/EasyExam/src/app/shared/services/http.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Front/EasyExam/src/app/views/auth/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Front/EasyExam/src/app/views/auth/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Front/EasyExam/src/app/views/auth/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Front/EasyExam/src/app/views/auth/register/register.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Front/EasyExam/src/app/views/principal/screens/seeker/seeker.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Front/EasyExam/src/app/views/principal/screens/seeker/seeker.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Front/EasyExam/src/app/views/principal/screens/seeker/seeker.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Front/EasyExam/src/app/views/principal/screens/seeker/seeker.component.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

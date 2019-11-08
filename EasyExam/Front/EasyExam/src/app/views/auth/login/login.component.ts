@@ -28,6 +28,5 @@ export class LoginComponent implements OnInit {
       this.error = 1;
       return;
     }
-    this.auth.logout();
   }
 }
