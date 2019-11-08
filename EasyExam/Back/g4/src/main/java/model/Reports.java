@@ -1,12 +1,20 @@
 package model;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
 public class Reports {
-    String description;
-    Question question;
-    Teacher creator;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    private String description;
+
+    @ManyToOne
+    private Question question;
+
+    @ManyToOne
+    private Teacher creator;
 
     public Reports() {
     }

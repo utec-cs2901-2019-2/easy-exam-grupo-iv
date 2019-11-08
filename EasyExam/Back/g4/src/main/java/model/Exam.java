@@ -1,11 +1,14 @@
 package model;
 
-import java.util.ArrayList;
-import javax.persistence.Entity;
+import java.util.List;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 public class Exam {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     String college;
     String course;
@@ -16,15 +19,22 @@ public class Exam {
     Date exam_date;
     int max_points;
     int question_number;
-    Teacher creator;
-    ArrayList<Question> questions;
-    ArrayList<Subcategory> subcategories;
 
+    @ManyToOne
+    Teacher creator;
+
+    @ManyToMany
+    @JoinTable(
+            name = "question_exam",
+            joinColumns = @JoinColumn(name = "exam_id"),
+            inverseJoinColumns = @JoinColumn(name = "question_id")
+    )
+    List<Question> questions;
 
     public Exam() {
     }
 
-    public Exam(String college, String course, String rules, String specs, String title, Date creation_date, Date exam_date, int max_points, int question_number, Teacher creator, ArrayList<Question> questions, ArrayList<Subcategory> subcategories) {
+    public Exam(String college, String course, String rules, String specs, String title, Date creation_date, Date exam_date, int max_points, int question_number, Teacher creator, List<Question> questions) {
         this.college = college;
         this.course = course;
         this.rules = rules;
@@ -36,7 +46,6 @@ public class Exam {
         this.question_number = question_number;
         this.creator = creator;
         this.questions = questions;
-        this.subcategories = subcategories;
     }
 
     public String getCollege() {
@@ -119,19 +128,11 @@ public class Exam {
         this.creator = creator;
     }
 
-    public ArrayList<Subcategory> getSubcategories() {
-        return subcategories;
-    }
-
-    public void setSubcategories(ArrayList<Subcategory> subcategories) {
-        this.subcategories = subcategories;
-    }
-
-    public ArrayList<Question> getQuestions() {
+    public List<Question> getQuestions() {
         return questions;
     }
 
-    public void setQuestions(ArrayList<Question> questions) {
+    public void setQuestions(List<Question> questions) {
         this.questions = questions;
     }
 }

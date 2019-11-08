@@ -1,27 +1,39 @@
 package model;
 
-import java.util.ArrayList;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-import javax.persistence.Entity;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Question {
     @Id
-    @GeneratedValue
-            (strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     private String title;
     private Date creation_date;
     private Boolean allowed;
     private String answer;
     private String description;
     private Integer score;
+
+    @ManyToOne
     private Teacher creator;
-    private ArrayList<Subcategory> subcategory;
+
+    @ManyToMany
+    @JoinTable(
+            name = "question_subcategory",
+            joinColumns = @JoinColumn(name = "question_id"),
+            inverseJoinColumns = @JoinColumn(name = "subcategory_id")
+    )
+    private List<Subcategory> subcategory;
+
+    @OneToMany(mappedBy = "question")
+    private List<Reports> reports;
+
+    @ManyToMany(mappedBy = "questions")
+    private List<Exam> exams;
 
     public Question() {
         score = 0;
@@ -29,8 +41,6 @@ public class Question {
 
     public void like() {
         score++;
-
-
     }
 
     public void dislike() {
@@ -93,11 +103,11 @@ public class Question {
         this.creator = creator;
     }
 
-    public ArrayList<Subcategory> getSubcategory() {
+    public List<Subcategory> getSubcategory() {
         return subcategory;
     }
 
-    public void setSubcategory(ArrayList<Subcategory> subcategory) {
+    public void setSubcategory(List<Subcategory> subcategory) {
         this.subcategory = subcategory;
     }
 

@@ -1,12 +1,18 @@
 package model;
 
-import javax.persistence.Entity;
-import java.util.ArrayList;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Category {
-    String name;
-    ArrayList<Subcategory> subcategories;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
+    private String name;
+
+    @OneToMany(mappedBy = "category")
+    private List<Subcategory> subcategories;
 
     public Category() {
     }
@@ -19,11 +25,7 @@ public class Category {
         this.name = name;
     }
 
-    public ArrayList<Subcategory> getSubcategories() {
+    public List<Subcategory> getSubcategories() {
         return subcategories;
-    }
-
-    public void setSubcategories(ArrayList<Subcategory> subcategories) {
-        this.subcategories = subcategories;
     }
 }

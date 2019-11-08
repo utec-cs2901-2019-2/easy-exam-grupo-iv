@@ -11,8 +11,8 @@ import { Exam } from '../interfaces/exam';
 })
 
 export class HttpService {
-  url = '';
-  loginurl = '';
+  url = 'localhost:9090';
+  loginurl = '/login';
   registerurl = '';
   forgoturl = '';
   constructor(private http: HttpClient) { }
