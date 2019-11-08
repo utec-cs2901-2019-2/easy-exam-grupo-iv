@@ -11,7 +11,7 @@ import { Exam } from '../interfaces/exam';
 })
 
 export class HttpService {
-  url = 'localhost:9090';
+  url = 'localhost:8080';
   loginurl = '/login';
   registerurl = '';
   forgoturl = '';
@@ -22,6 +22,9 @@ export class HttpService {
     .subscribe(
       (data) => {
         user = data.user;
+        if (user.email === '') {
+          return;
+        }
         localStorage.setItem('access_token', data.token);
       },
       (err) => {

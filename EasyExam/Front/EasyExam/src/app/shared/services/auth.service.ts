@@ -13,7 +13,7 @@ A-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$`;
   constructor(private http: HttpService) { }
   login(email: string, password: string): boolean {
     this.user = this.http.login(email, password);
-    if (this.user == null) {
+    if (this.user.email === '') {
       return false;
     }
     return true;

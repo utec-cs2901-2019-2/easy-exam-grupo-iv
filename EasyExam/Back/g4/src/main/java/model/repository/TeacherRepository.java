@@ -8,6 +8,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface TeacherRepository extends JpaRepository {
+public interface TeacherRepository extends JpaRepository<Teacher, String> {
   List<Teacher> findbyEmail(@Param("email") String email);
 }
