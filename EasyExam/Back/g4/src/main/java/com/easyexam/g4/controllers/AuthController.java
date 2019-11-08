@@ -1,27 +1,37 @@
 package com.easyexam.g4.controllers;
 
-import model.Teacher;
-import model.api.LoginRequest;
-import model.api.LoginResponse;
-import model.repository.TeacherRepository;
+import com.easyexam.g4.model.Teacher;
+import com.easyexam.g4.model.api.LoginRequest;
+import com.easyexam.g4.model.api.LoginResponse;
+import com.easyexam.g4.model.api.RegisterRequest;
+import com.easyexam.g4.model.api.RegisterResponse;
+import com.easyexam.g4.model.repository.TeacherRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class AuthController {
 
+  @Autowired
   TeacherRepository teacherRepository;
 
   @PostMapping("/login")
   LoginResponse login(@RequestBody LoginRequest request){
-    List<Teacher> value = teacherRepository.findbyEmail(request.email);
-    if(value.size() != 0) {
-      return new LoginResponse(value.get(0), "Ingrese Token Aqui");
+    Optional<Teacher> value = teacherRepository.findById(request.email);
+    if(!value.isEmpty()) {
+      return new LoginResponse(value.get(), "Ingrese Token Aqui");
     } else {
-      return new LoginResponse(new Teacher("","","","",""), "Ingrese Token Aqui");
+      return new LoginResponse(new Teacher("","","","","", false), "Ingrese Token Aqui");
     }
+  }
+  @PostMapping("/register")
+  RegisterResponse register(@RequestBody RegisterRequest request){
+    System.out.println(request.email);
+    teacherRepository.save(new Teacher(request.email, "", request.name, request.password, "", false));
+    return new RegisterResponse("Ingrese Token Aqui");
   }
 }

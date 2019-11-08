@@ -35,5 +35,6 @@ export class RegisterComponent implements OnInit {
       alert('Error');
       return;
     }
+    this.auth.logout();
   }
 }

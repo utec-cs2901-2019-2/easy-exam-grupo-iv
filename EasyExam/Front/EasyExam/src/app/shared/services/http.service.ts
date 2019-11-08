@@ -11,17 +11,26 @@ import { Exam } from '../interfaces/exam';
 })
 
 export class HttpService {
-  url = 'localhost:8080';
+  url = 'http://localhost:8080';
   loginurl = '/login';
-  registerurl = '';
+  registerurl = '/register';
   forgoturl = '';
   constructor(private http: HttpClient) { }
   login(Email: string, Password: string): User {
     let user: User;
-    this.http.post<{user: User; token: string}>(this.url + this.loginurl, {email: Email, password: Password})
+    this.http.post<{email: string; lastName: string; name: string; password: string; phone: string; isAdmin: boolean;
+      points: number; token: string}>(this.url + this.loginurl, {email: Email, password: Password})
     .subscribe(
       (data) => {
-        user = data.user;
+        user = {
+          email: data.email,
+          lastName: data.lastName,
+          name: data.name,
+          password: data.password,
+          phone: data.phone,
+          isAdmin: data.isAdmin,
+          points: data.points
+        };
         if (user.email === '') {
           return;
         }
