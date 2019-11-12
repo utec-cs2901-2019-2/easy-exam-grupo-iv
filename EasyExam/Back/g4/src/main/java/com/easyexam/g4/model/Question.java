@@ -1,6 +1,6 @@
 package com.easyexam.g4.model;
 
-import javax.persistence.*;
+import  javax.persistence.*;
 
 import java.util.Date;
 import java.util.List;
