@@ -19,6 +19,7 @@ public class Question {
     private Integer score;
 
     @ManyToOne
+    @Basic(fetch = FetchType.LAZY)
     private Teacher creator;
 
     @ManyToMany

@@ -16,6 +16,8 @@ import { Subcategory } from '../classes/subcategory';
 export class HttpService {
   url = 'http://localhost:8080';
   loginurl = '/login';
+  questionsurl = '/questions';
+  numpages = 1;
   registerurl = '/register';
   forgoturl = '';
   user: User;
@@ -27,7 +29,7 @@ export class HttpService {
   constructor(private http: HttpClient) {
     this.updatecategories();
     this.updatesubcategories();
-    this.updatequestions();
+    this.updatequestions(1);
   }
   login(Email: string, Password: string): User {
     this.http.post<{email: string; lastName: string; name: string; password: string; phone: string; isAdmin: boolean;
@@ -68,20 +70,45 @@ export class HttpService {
     this.http.post(this.url + this.registerurl, { email: Email });
   }
   getpdf(texstring: string, savevalue: Exam) {}
-  updatequestions() {
-    for (let i = 0; i < 100; i++) {
-      let qstions = [];
-      for (let j = 0; j < i; j++) {
-        qstions.push(this.subcategories[Math.floor(Math.random() * (this.subcategories.length - 1 - 0 + 1) + 0)]);
-      }
-      console.log(qstions);
-      const quest = new Question('48', `Mike tiene 5 carros y va a comprar 8,
-si el sol esta alineado, cual es el volumen del planeta tierra`, qstions, this.user);
-      quest.score  = 4;
-      quest.selected = false;
-      this.questions.push(quest);
-      qstions = [];
+//   updatequestions() {
+//     for (let i = 0; i < 100; i++) {
+//       let qstions = [];
+//       for (let j = 0; j < i; j++) {
+//         qstions.push(this.subcategories[Math.floor(Math.random() * (this.subcategories.length - 1 - 0 + 1) + 0)]);
+//       }
+//       const quest = new Question('48', `Mike tiene 5 carros y va a comprar 8,
+// si el sol esta alineado, cual es el volumen del planeta tierra`, qstions);
+//       quest.score  = 4;
+//       quest.selected = false;
+//       this.questions.push(quest);
+//       qstions = [];
+//     }
+//   }
+  updatequestions(index: number) {
+    if (index > this.numpages) {
+      console.log('Overflow');
+      index = 1;
     }
+    this.http.post<{questions: any; pages: number}>(this.url + this.questionsurl, { questions: 25, page: 1 })
+    .subscribe(
+      (data) => {
+        this.questions = [];
+        this.numpages = data.pages;
+        for (const i of data.questions) {
+          this.questions.push({
+            id: i.id,
+            allowed: i.allowed,
+            creationDate: i.creationDate,
+            reports: [],
+            score: i.score,
+            selected: false,
+            answer: i.answer,
+            description : i.description,
+            subcategory: i.subcategory
+          });
+        }
+      }
+    );
   }
   updatecategories() {
     for (let i = 0; i < 10; i++) {

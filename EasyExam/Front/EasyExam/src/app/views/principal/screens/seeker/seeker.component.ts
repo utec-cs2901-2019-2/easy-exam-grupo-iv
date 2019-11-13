@@ -15,7 +15,7 @@ export class SeekerComponent implements OnInit {
   ngOnInit() {
     this.http.updatecategories();
     this.http.updatesubcategories();
-    this.http.updatequestions();
+    this.http.updatequestions(1);
   }
 
   getsubcategories(index: number) {
