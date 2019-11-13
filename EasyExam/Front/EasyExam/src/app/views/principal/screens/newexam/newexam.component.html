@@ -1,0 +1,67 @@
+<app-navbar></app-navbar>
+<div class="correct unselect">
+  <div class="container">
+    <div class="col-12 moremax">
+      <div class="row">
+        <div class="col-6 form-group">
+          <label for="title">Titulo del Examen</label>
+          <input class="form-control" type="text" id="title" [(ngModel)]="exam.title" name="title">
+        </div>
+        <div class="col-6 form-group">
+          <label for="institution">Institucion Educativa</label>
+          <input class="form-control" type="text" id="institution">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6 form-group">
+          <label for="date">Fecha del Examen</label>
+          <input class="form-control" type="text" id="date" [(ngModel)]="exam.date">
+        </div>
+        <div class="col-6 form-group">
+          <label for="categories">Categoria</label>
+          <select id="categories" class="form-control selectpicker" data-style="btn btn-link" [(ngModel)]="category">
+            <option *ngFor="let cat of http.categories">{{ cat.name }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6 form-group">
+          <label>Curso</label>
+          <input class="form-control" type="text" [(ngModel)]="exam.date">
+        </div>
+        <div class="col-6 form-group">
+          <label>Subcategorias</label>
+          <select class="form-control selectpicker" data-style="btn btn-link" [(ngModel)]="exam.subcategories">
+            <option *ngFor="let cat of exam.subcategories">{{ cat.name }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6 form-group">
+          <label>Numero de preguntas</label>
+          <input class="form-control" type="number" [(ngModel)]="exam.question_number">
+        </div>
+        <div class="col-6 form-group">
+          <label>Puntaje Maximo</label>
+          <input class="form-control" type="number" [(ngModel)]="exam.max_points">
+        </div>
+      </div>
+      <div class="row max">
+        <div class="col-6 form-group">
+          <label>Especificaciones para el Examen</label>
+          <textarea class="form-control"></textarea>
+        </div>
+        <div class="col-6 form-group">
+          <label>Normas en el Examen</label>
+          <textarea class="form-control"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="buttons">
+    <div class="container">
+      <div class="split"><button class="btn btn-primary">Preguntas Guardadas</button></div>
+      <div class="split"><button class="btn btn-primary">Generar Examen</button></div>
+    </div>
+  </div>
+</div>

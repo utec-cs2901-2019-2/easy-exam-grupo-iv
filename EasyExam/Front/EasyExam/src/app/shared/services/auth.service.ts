@@ -18,6 +18,9 @@ A-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$`;
     if (this.user.email === '') {
       return false;
     }
+    if (this.user.password !== password) {
+      return false;
+    }
     this.router.navigate(['']);
     return true;
   }
@@ -31,7 +34,8 @@ A-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$`;
       password : Password,
       phone : '',
       isAdmin: false,
-      points: 0
+      points: 0,
+      exams: []
     };
     return true;
   }
@@ -45,7 +49,8 @@ A-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$`;
       password : '',
       phone : '',
       isAdmin: false,
-      points: 0
+      points: 0,
+      exams: []
     };
   }
   loggedIn(): boolean {

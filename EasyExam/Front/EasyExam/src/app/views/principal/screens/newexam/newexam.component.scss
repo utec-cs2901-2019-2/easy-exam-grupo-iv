@@ -1,0 +1,14 @@
+.buttons {
+  align-self: flex-end;
+  width: 100%;
+  .container {
+    display: flex;
+    flex-wrap: nowrap;
+    .split {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

@@ -3,6 +3,7 @@ package com.easyexam.g4.model.api;
 import com.easyexam.g4.model.Teacher;
 
 public class LoginResponse {
+  public String email;
   public String lastName;
   public String name;
   public String password;
@@ -13,6 +14,7 @@ public class LoginResponse {
   public String token;
 
   public LoginResponse(Teacher user, String _token){
+    email = user.getEmail();
     lastName = user.getLast_name();
     name = user.getName();
     password = user.getPassword();

@@ -17,6 +17,9 @@ import { PreviewComponent } from './views/principal/screens/preview/preview.comp
 import { SavedQuestionsComponent } from './views/principal/screens/saved-questions/saved-questions.component';
 import { SeekerComponent } from './views/principal/screens/seeker/seeker.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HistoryComponent } from './views/principal/screens/history/history.component';
+import { QuestiondialogComponent } from './views/principal/screen/shared/questiondialog/questiondialog.component';
+import { NewexamComponent } from './views/principal/screens/newexam/newexam.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CreatorComponent,
     PreviewComponent,
     SavedQuestionsComponent,
-    SeekerComponent
+    SeekerComponent,
+    HistoryComponent,
+    QuestiondialogComponent,
+    NewexamComponent
   ],
   imports: [
     BrowserModule,

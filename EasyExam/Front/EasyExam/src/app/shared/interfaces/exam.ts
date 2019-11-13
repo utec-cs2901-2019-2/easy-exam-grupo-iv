@@ -1,6 +1,6 @@
 import { Question } from '../classes/question';
 import { Subcategory } from '../classes/subcategory';
-import { Teacher } from '../classes/teacher';
+import { User } from '../interfaces/user';
 
 export interface Exam {
   college: string;
@@ -14,5 +14,5 @@ export interface Exam {
   rules: string;
   specs: string;
   title: string;
-  creator: Teacher;
+  creator: User;
 }

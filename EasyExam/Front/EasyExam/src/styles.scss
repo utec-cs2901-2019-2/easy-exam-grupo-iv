@@ -12,11 +12,11 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$EasyExam-primary: mat-palette($mat-indigo);
-$EasyExam-accent: mat-palette($mat-pink, A200, A100, A400);
+$EasyExam-primary: mat-palette($mat-grey);
+$EasyExam-accent: mat-palette($mat-grey);
 
 // The warn palette is optional (defaults to red).
-$EasyExam-warn: mat-palette($mat-red);
+$EasyExam-warn: mat-palette($mat-blue-grey);
 
 // Create the theme object (a Sass map containing all of the palettes).
 $EasyExam-theme: mat-light-theme($EasyExam-primary, $EasyExam-accent, $EasyExam-warn);
@@ -30,3 +30,25 @@ $EasyExam-theme: mat-light-theme($EasyExam-primary, $EasyExam-accent, $EasyExam-
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.unselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.correct {
+  display: flex;
+  flex-wrap: wrap;
+  position: fixed;
+  left: 15.5vw;
+  top: 10vh;
+  width: 82vw;
+  height: 85vh;
+  overflow-x: none;
+  overflow-y: auto;
+}
