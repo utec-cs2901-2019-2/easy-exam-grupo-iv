@@ -13,7 +13,8 @@ public class Exam {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
+    //Todo en el front.nueva adicion
+    List<Integer> points;
     String college;
     String course;
     String rules;
@@ -51,10 +52,10 @@ public class Exam {
         this.creator = creator;
         this.questions = questions;
     }
-    public static void runScript() throws IOException, InterruptedException {
-        //compilation.sh va a buscar tu archivo y compilarlo con livetex
+    public static void compileTex(String name) throws IOException, InterruptedException {
+        // compilation.sh va a buscar tu archivo y compilarlo con livetex
 
-        ProcessBuilder processBuilder = new ProcessBuilder("pdflatex", "test.tex");
+        ProcessBuilder processBuilder = new ProcessBuilder("pdflatex", name);
         processBuilder.inheritIO();
         Process process = processBuilder.start();
 
@@ -154,46 +155,69 @@ public class Exam {
         this.questions = questions;
     }
 //TODO: mayencourt.sty y retornar url
-    public void cook() {
-        String filename = "test.tex";
-        Integer num_questions = questions.size();
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
-            String boilerplateStart = "\\documentclass[12pt, addpoints]{exam}\\usepackage{mayencourt}\\usepackage{xpatch}\\xapptocmd{\\@item}{\\label{en:\\arabic{page}\\alph{enumi}}}{}{}\\pgfplotsset{compat=1.15}\\usetikzlibrary{patterns}\\pagestyle{headandfoot}\\extraheadheight{1cm}\\runningheadrule\\firstpageheader{\\huge \\textbf{" + this.college + "}}                {    \\textbf{ Course : \\\\                      Date:\\\\                      Number of questions :\\\\                      " + this.course + "}                 }                {   \\textbf{" + this.course + "\\\\                    " + this.exam_date + "\\\\                    " + this.question_number + "\\\\                    Points: " + this.max_points + "}}\\runningheader{\\huge \\textbf{" + this.college + "}}                {    \\textbf{ Course : \\\\                      Date:\\\\                      Number of questions :\\\\                      " + this.title + "}                 }                {   \\textbf{" + this.title + "\\\\                    " + this.exam_date + "\\\\                    " + this.question_number + "\\\\                    Points: " + this.max_points + "}}\\begin{document}\\printanswers\\vspace{5cm}\\begin{center}\\begin{tabular}{|l|l|}\\hline&\\\\\\makebox[0.4\\textwidth]{Name : \\enspace\\hrulefill}    & \\makebox[0.4\\textwidth]{Student code : \\enspace\\hrulefill}  \\\\&\\\\\\makebox[0.4\\textwidth]{Surnames : \\enspace\\hrulefill}     & \\makebox[0.4\\textwidth]{Major : \\enspace\\hrulefill}\\\\&\\\\\\hline\\end{tabular}\\end{center}\\vspace{5cm}\\newpage\\vspace{3cm}\\textbf{Instructions :}";
-            // hasta el begin itemize
-            String sign_here = "\\vspace{5cm}\\begin{tabular}{ll}Signatures : & \\makebox[0.4\\textwidth]{ \\enspace\\hrulefill}	\\\\&\\\\&\\\\& \\makebox[0.4\\textwidth]{ \\enspace\\hrulefill}\\\\\\end{tabular}\\newpage";
-            writer.write(boilerplateStart);
-            writer.write(this.rules);
-            writer.write(sign_here);
-            for (int i = 0; i < num_questions; i++) {
-                Question current = questions.get(i);
-                String buffer = "\\question" + current.getTitle() + "\\newline" + current.getDescription()
-                        + "\\newpage";
-                writer.write(buffer);
-            }
+public void cook(Boolean solucionario) {
+    String filename = this.id + "test.tex";
+    Integer num_questions = questions.size();
+    try {
+        BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
+        String boilerplateStart = "\\documentclass[12pt, addpoints]{exam}\\usepackage{mayencourt}\\usepackage{xpatch}\\xapptocmd{\\@item}{\\label{en:\\arabic{page}\\alph{enumi}}}{}{}\\pgfplotsset{compat=1.15}\\usetikzlibrary{patterns}\\pagestyle{headandfoot}\\extraheadheight{1cm}\\runningheadrule\\firstpageheader{\\huge \\textbf{"
+                + this.college
+                + "}}                {    \\textbf{ Course : \\\\                      Date:\\\\                      Number of questions :\\\\                      "
+                + this.course + "}                 }                {   \\textbf{" + this.course
+                + "\\\\                    " + this.exam_date + "\\\\                    " + this.question_number
+                + "\\\\                    Points: " + this.max_points + "}}\\runningheader{\\huge \\textbf{"
+                + this.college
+                + "}}                {    \\textbf{ Course : \\\\                      Date:\\\\                      Number of questions :\\\\                      "
+                + this.course + "}                 }                {   \\textbf{" + this.title
+                + "\\\\                    " + this.exam_date + "\\\\                    " + this.question_number
+                + "\\\\                    Points: " + this.max_points
+                + "}}\\begin{document}\\printanswers\\vspace{5cm}\\begin{center}\\begin{tabular}{|l|l|}\\hline&\\\\\\makebox[0.4\\textwidth]{Name : \\enspace\\hrulefill}    & \\makebox[0.4\\textwidth]{Student code : \\enspace\\hrulefill}  \\\\&\\\\\\makebox[0.4\\textwidth]{Surnames : \\enspace\\hrulefill}     & \\makebox[0.4\\textwidth]{Major : \\enspace\\hrulefill}\\\\&\\\\\\hline\\end{tabular}\\end{center}\\vspace{5cm}";
+        // hasta el begin itemize
+        String sign_here = "\\vspace{5cm}\\begin{tabular}{ll}Signatures : & \\makebox[0.4\\textwidth]{ \\enspace\\hrulefill}	\\\\&\\\\&\\\\& \\makebox[0.4\\textwidth]{ \\enspace\\hrulefill}\\\\\\end{tabular}\\newpage";
+        writer.write(boilerplateStart);
+        writer.write(sign_here);
+        writer.write("\\vspace{3cm}\\textbf{Instructions :}");
+        writer.write(this.rules);
+        writer.write("\\newpage");
 
-            writer.write("\\end{enumerate");
-            writer.write("\\textbf{Resources:}" + this.getSpecs() + "\\newpage");
-            writer.write("\\begin{solution}");
-            for (int j = 0; j < num_questions; j++) {
-                Question curr = questions.get(j);
-                String buffer2 = "\\solution" + curr.getAnswer();
-                writer.write(buffer2);
-            }
-            ;
-            writer.write("\\end{solution}");
-            writer.write("\\end{questions}");
-            writer.write("\\end{document}");
-            writer.close();
+        writer.write("\\begin{questions}");
+        for (int i = 0; i < num_questions; i++) {
+            Question current = questions.get(i);
+            String buffer = "\\question" + '[' + points.get(i) + "] " + current.getTitle() + "\\newline "
+                    + current.getDescription();
+            writer.write(buffer);
+            if (solucionario) {
+                String answerBuffer = current.getAnswer();
 
-        } catch (IOException e) {
-        }  try {
-            //compile the generated tex file
-            runScript();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+                writer.write("\\newline " + "Answer:" + "\\newline " + answerBuffer);
+            }
+            writer.write("\\newpage ");
         }
+
+        writer.write("\\textbf{Resources:}" + this.getSpecs() + "\\newpage");
+        // original write solution loop. Instead we went for a separate pdf
+        // writer.write("\\begin{solution}");
+        // for (int j = 0; j < num_questions; j++) {
+        // Question curr = questions.get(j);
+        // String buffer2 = "\\item " + curr.getAnswer();
+        // writer.write(buffer2);
+        // }
+        // ;
+        // writer.write("\\end{solution}");
+        writer.write("\\end{questions}");
+        writer.write("\\end{document}");
+        writer.close();
+
+    } catch (IOException e) {
     }
+    try {
+        // compile the generated tex file
+        compileTex(filename);
+    } catch (IOException e) {
+        e.printStackTrace();
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+
+}
 }
