@@ -32,7 +32,7 @@
         <div class="col-6 form-group">
           <label>Subcategorias</label>
           <select class="form-control selectpicker" data-style="btn btn-link" [(ngModel)]="exam.subcategories">
-            <option *ngFor="let cat of exam.subcategories">{{ cat.name }}</option>
+            <option *ngFor="let cat of category?.subcategories">{{ cat.name }}</option>
           </select>
         </div>
       </div>

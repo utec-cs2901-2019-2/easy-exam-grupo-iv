@@ -29,8 +29,10 @@ public class SearchAndFilterController {
     List<Question> value = questionRepository.findAll();
     for(Question i : value) {
       i.setCreator(null);
+      i.setSaved(null);
       for(Subcategory j : i.getSubcategory()) {
         j.setQuestions(null);
+        j.setCategory(null);
       }
     }
     response.pages = (int)Math.ceil((double)value.size()/(double)request.questions);

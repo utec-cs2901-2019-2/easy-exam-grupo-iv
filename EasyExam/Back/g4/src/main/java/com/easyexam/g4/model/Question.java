@@ -30,6 +30,9 @@ public class Question {
     )
     private List<Subcategory> subcategory;
 
+    @ManyToMany(mappedBy = "selectedq")
+    private List<Teacher> saved;
+
     @OneToMany(mappedBy = "question")
     private List<Reports> reports;
 
@@ -114,5 +117,9 @@ public class Question {
 
     public Integer getScore() {
         return score;
+    }
+
+    public void setSaved(List<Teacher> saved) {
+        this.saved = saved;
     }
 }

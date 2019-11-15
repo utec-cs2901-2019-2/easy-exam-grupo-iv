@@ -9,5 +9,5 @@ export class Question {
   reports: Report[];
   score: number;
   selected: boolean;
-  constructor(public answer: string, public description: string, public subcategory: Subcategory[]) {}
+  constructor(public answer: string, public description: string, public subcategory: Subcategory[], public title: string) {}
 }

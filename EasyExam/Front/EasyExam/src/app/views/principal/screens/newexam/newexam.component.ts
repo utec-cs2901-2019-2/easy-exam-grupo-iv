@@ -26,7 +26,8 @@ export class NewexamComponent implements OnInit {
     creator: null,
   };
   category: string;
-  constructor(public http: HttpService) { }
+  constructor(public http: HttpService) {
+  }
 
   ngOnInit() {
     this.http.updatecategories();

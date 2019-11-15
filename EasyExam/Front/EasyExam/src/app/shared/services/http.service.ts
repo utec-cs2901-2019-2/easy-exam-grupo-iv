@@ -17,20 +17,21 @@ export class HttpService {
   url = 'http://localhost:8080';
   loginurl = '/login';
   questionsurl = '/questions';
-  numpages = 1;
+  categoriesurl = '/categories';
   registerurl = '/register';
+  saveurl = '/savedata';
+  numpages = 1;
   forgoturl = '';
   user: User;
 
   questions: Question[] = [];
   categories: Category[] = [];
-  subcategories: Subcategory[] = [];
 
   constructor(private http: HttpClient) {
     this.updatecategories();
-    this.updatesubcategories();
     this.updatequestions(1);
   }
+
   login(Email: string, Password: string): User {
     this.http.post<{email: string; lastName: string; name: string; password: string; phone: string; isAdmin: boolean;
       points: number; token: string}>(this.url + this.loginurl, {email: Email, password: Password})
@@ -58,6 +59,7 @@ export class HttpService {
     );
     return {...this.user};
   }
+
   register(Name: string, Email: string, Password: string) {
     this.http.post<{token: string}>(this.url + this.registerurl, {name: Name, email: Email, password: Password})
     .subscribe(
@@ -66,24 +68,13 @@ export class HttpService {
       }
     );
   }
+
   forgotPassword(Email: string) {
     this.http.post(this.url + this.registerurl, { email: Email });
   }
+
   getpdf(texstring: string, savevalue: Exam) {}
-//   updatequestions() {
-//     for (let i = 0; i < 100; i++) {
-//       let qstions = [];
-//       for (let j = 0; j < i; j++) {
-//         qstions.push(this.subcategories[Math.floor(Math.random() * (this.subcategories.length - 1 - 0 + 1) + 0)]);
-//       }
-//       const quest = new Question('48', `Mike tiene 5 carros y va a comprar 8,
-// si el sol esta alineado, cual es el volumen del planeta tierra`, qstions);
-//       quest.score  = 4;
-//       quest.selected = false;
-//       this.questions.push(quest);
-//       qstions = [];
-//     }
-//   }
+
   updatequestions(index: number) {
     if (index > this.numpages) {
       console.log('Overflow');
@@ -104,22 +95,37 @@ export class HttpService {
             selected: false,
             answer: i.answer,
             description : i.description,
-            subcategory: i.subcategory
+            subcategory: i.subcategory,
+            title: i.title
           });
         }
       }
     );
   }
+
   updatecategories() {
-    for (let i = 0; i < 10; i++) {
-      const quest = new Category('Computacion');
-      this.categories.push(quest);
-    }
+    this.http.post<Category[]>(this.url + this.categoriesurl, '')
+    .subscribe(
+      (data) => {
+        this.categories = data;
+      }
+    );
   }
-  updatesubcategories() {
-    for (let i = 0; i < 10; i++) {
-      const quest = new Subcategory('Computacion', this.categories[Math.floor(Math.random() * (this.categories.length - 1 - 0 + 1) + 0)]);
-      this.subcategories.push(quest);
+
+  savedata() {
+    const response = {
+      email: this.user.email,
+      lastName: this.user.lastName,
+      name: this.user.name,
+      phone: this.user.phone,
+      points: this.user.points,
+      savedQuestions: []
+    };
+    for (const i of this.questions) {
+      if (i.selected) {
+        response.savedQuestions.push(i.id);
+      }
+      this.http.post(this.url + this.saveurl, response);
     }
   }
 }

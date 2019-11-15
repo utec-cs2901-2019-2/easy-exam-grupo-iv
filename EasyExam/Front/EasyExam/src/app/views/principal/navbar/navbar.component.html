@@ -1,9 +1,11 @@
 <div class="nav unselect">
   <div class="logo"><img src="https://i.ibb.co/qdRRdB0/Logo.png"></div>
-  <div class="score">32</div>
+  <div *ngIf="!auth.loggedIn()" class="score">32</div>
+  <div *ngIf="auth.loggedIn()" class="score">32</div>
   <div class="user">
-    <div class="name">Nombre</div>
-    <div class="userlogo"><img src="https://img.pngio.com/profile-icon-png-image-free-download-searchpngcom-profile-icon-png-673_673.png"></div>
+    <div *ngIf="!auth.loggedIn()" class="name">Nombre</div>
+    <div *ngIf="auth.loggedIn()" class="name">{{ auth.user.email }}</div>
+    <div (click)="auth.logout()" class="userlogo"><img src="https://img.pngio.com/profile-icon-png-image-free-download-searchpngcom-profile-icon-png-673_673.png"></div>
   </div>
 </div>
 <div class="menu unselect">

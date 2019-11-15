@@ -18,7 +18,7 @@ import { SavedQuestionsComponent } from './views/principal/screens/saved-questio
 import { SeekerComponent } from './views/principal/screens/seeker/seeker.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HistoryComponent } from './views/principal/screens/history/history.component';
-import { QuestiondialogComponent } from './views/principal/screen/shared/questiondialog/questiondialog.component';
+import { QuestiondialogComponent } from './views/principal/screens/shared/questiondialog/questiondialog.component';
 import { NewexamComponent } from './views/principal/screens/newexam/newexam.component';
 
 @NgModule({
