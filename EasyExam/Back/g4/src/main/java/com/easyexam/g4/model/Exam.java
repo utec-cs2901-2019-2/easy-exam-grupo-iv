@@ -13,8 +13,8 @@ public class Exam {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    //Todo en el front.nueva adicion
-    List<Integer> points;
+
+
     String college;
     String course;
     String rules;
@@ -155,7 +155,7 @@ public class Exam {
         this.questions = questions;
     }
 //TODO: mayencourt.sty y retornar url
-public void cook(Boolean solucionario) {
+public void cook(Boolean solucionario, List<Integer> points) {
     String filename = this.id + "test.tex";
     Integer num_questions = questions.size();
     try {
