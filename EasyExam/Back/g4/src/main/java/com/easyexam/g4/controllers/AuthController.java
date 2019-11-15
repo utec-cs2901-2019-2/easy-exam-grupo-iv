@@ -34,7 +34,6 @@ public class AuthController {
   }
   @PostMapping("/register")
   RegisterResponse register(@RequestBody RegisterRequest request){
-    System.out.println(request.email);
     teacherRepository.save(new Teacher(request.email, "", request.name, request.password, "", false));
     return new RegisterResponse("Ingrese Token Aqui");
   }

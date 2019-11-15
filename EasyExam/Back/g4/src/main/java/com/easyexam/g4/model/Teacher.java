@@ -19,6 +19,14 @@ public class Teacher {
     @OneToMany(mappedBy = "creator")
     private List<Question> questions;
 
+    @ManyToMany
+    @JoinTable(
+            name = "question_teacher",
+            joinColumns = @JoinColumn(name = "question_id"),
+            inverseJoinColumns = @JoinColumn(name = "teacher_id")
+    )
+    private List<Question> selectedq;
+
     @OneToMany(mappedBy = "creator")
     private List<Exam> exams;
 
@@ -98,5 +106,13 @@ public class Teacher {
 
     public Boolean getAdmin() {
         return isAdmin;
+    }
+
+    public void setPoints(Integer points) {
+        this.points = points;
+    }
+
+    public void setSelectedq(List<Question> selectedq) {
+        this.selectedq = selectedq;
     }
 }
