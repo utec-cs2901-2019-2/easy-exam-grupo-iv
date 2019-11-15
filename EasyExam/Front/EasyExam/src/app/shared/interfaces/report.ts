@@ -1,8 +1,8 @@
 import { Question } from '../classes/question';
-import { Teacher } from '../classes/teacher';
+import { User } from './user';
 
 export interface Report {
   description: string;
   question: Question;
-  creator: Teacher;
+  creator: User;
 }

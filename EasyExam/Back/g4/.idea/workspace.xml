@@ -11,11 +11,27 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/easyexam/g4/controllers/ExamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/easyexam/g4/controllers/ExamController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/easyexam/g4/model/Exam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/easyexam/g4/model/Exam.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/easyexam/g4/model/repository/ExamRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/easyexam/g4/model/repository/ExamRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/easyexam/g4/controllers/ApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/easyexam/g4/controllers/ApiController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/easyexam/g4/controllers/ApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/easyexam/g4/controllers/ApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/easyexam/g4/controllers/SearchAndFilterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/easyexam/g4/controllers/SearchAndFilterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/easyexam/g4/model/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/easyexam/g4/model/Question.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/easyexam/g4/model/Teacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/easyexam/g4/model/Teacher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/import.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/import.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Front/EasyExam/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Front/EasyExam/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Front/EasyExam/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Front/EasyExam/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Front/EasyExam/src/app/shared/classes/question.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Front/EasyExam/src/app/shared/classes/question.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Front/EasyExam/src/app/shared/interfaces/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Front/EasyExam/src/app/shared/interfaces/user.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Front/EasyExam/src/app/shared/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Front/EasyExam/src/app/shared/services/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Front/EasyExam/src/app/shared/services/http.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Front/EasyExam/src/app/shared/services/http.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Front/EasyExam/src/app/views/principal/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Front/EasyExam/src/app/views/principal/navbar/navbar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Front/EasyExam/src/app/views/principal/navbar/navbar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Front/EasyExam/src/app/views/principal/navbar/navbar.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Front/EasyExam/src/app/views/principal/screen/shared/questiondialog/questiondialog.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Front/EasyExam/src/app/views/principal/screen/shared/questiondialog/questiondialog.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Front/EasyExam/src/app/views/principal/screen/shared/questiondialog/questiondialog.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Front/EasyExam/src/app/views/principal/screen/shared/questiondialog/questiondialog.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Front/EasyExam/src/app/views/principal/screens/newexam/newexam.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Front/EasyExam/src/app/views/principal/screens/newexam/newexam.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Front/EasyExam/src/app/views/principal/screens/newexam/newexam.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Front/EasyExam/src/app/views/principal/screens/newexam/newexam.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Front/EasyExam/src/app/views/principal/screens/seeker/seeker.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Front/EasyExam/src/app/views/principal/screens/seeker/seeker.component.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,6 +58,9 @@
         </projects_view>
       </state>
     </system>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="g4" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">

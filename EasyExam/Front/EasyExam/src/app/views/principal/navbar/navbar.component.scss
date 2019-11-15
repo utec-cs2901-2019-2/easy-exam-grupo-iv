@@ -1,0 +1,96 @@
+.nav {
+  display: flex;
+  width: 100vw;
+  background: #323232;
+  height: 7vh;
+  padding-left: 3vw;
+  padding-right: 3vw;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  height: 60%;
+  width:5%;
+}
+
+.score {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.user {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  font-size: large;
+  .userlogo {
+    img {
+      width: 3vw;
+    }
+  }
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  background: #323232;
+  height: 93vh;
+  width: 13vw;
+  color: #fff;
+  .options {
+    height: 20vh;
+    width: 100%;
+    color: #fff;
+  }
+  .foot {
+    height: 10vh;
+    width: 100%;
+    align-self: flex-end;
+  }
+}
+.roww {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: #323232;
+  height: 5vh;
+  color: #fff;
+  .logo {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 20%;
+    background: #323232;
+    i {
+      height: 100%;
+      width: 50%;
+      font-size: x-large;
+    }
+  }
+}
+.name {
+  a {
+    color: #fff;
+    font-size: 1.1em;
+  }
+}
+.active {
+  background: #fff;
+  a {
+    color: #000;
+  }
+  .logo {
+    background: #fff;
+    color: #000;
+  }
+}

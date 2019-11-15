@@ -37,4 +37,8 @@ public class Subcategory {
     public void setCategory(Category category) {
         this.category = category;
     }
+
+    public void setQuestions(List<Question> questions) {
+        this.questions = questions;
+    }
 }
