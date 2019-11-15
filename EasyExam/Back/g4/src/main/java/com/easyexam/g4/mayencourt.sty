@@ -1,0 +1,153 @@
+\NeedsTeXFormat{LaTeX2e}
+ 
+\ProvidesPackage{mayencourt}[2011/10/21 Extension personnelle, V1.0]
+ 
+% extensions
+ 
+\RequirePackage{lmodern}
+\RequirePackage{graphicx}
+\RequirePackage[frenchb]{babel}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{amsmath} %Formules
+\RequirePackage{amssymb} %Formules
+\RequirePackage{amsthm} %Environnements
+\RequirePackage{enumerate}
+\RequirePackage{graphicx}
+\RequirePackage[all]{xy}
+\RequirePackage[nottoc, notlof, notlot]{tocbibind}
+\RequirePackage{float}
+%\RequirePackage[avantgarde]{quotchap}•
+\RequirePackage[Sonny]{fncychap}
+\RequirePackage{mathrsfs}
+\RequirePackage{pdfpages}
+\RequirePackage{pgf,tikz,pgfplots}
+
+\RequirePackage{answers}
+
+\RequirePackage{multicol}
+ 
+% commandes personnelles
+
+%environnement personel
+
+\newtheoremstyle{thme}
+{}%Space above
+{}%Space below
+{\itshape}%Body font
+{}%Indent amount (empty = no indent, \parindent = para indent)
+{\bfseries}%Thm head font
+{}%Punctuation after thm head
+{\newline}%Space after thm head: " " = normal interword space; \newline = linebreak
+{}%Thm head spec (can be left empty, meaning `normal')
+
+
+
+\newtheoremstyle{rem}% name
+{}%Space above
+{}%Space below
+{\upshape}%Body font
+{}%Indent amount (empty = no indent, \parindent = para indent)
+{\bfseries}%Thm head font
+{}%Punctuation after thm head
+{\newline}%Space after thm head: " " = normal interword space; \newline = linebreak
+{}%Thm head spec (can be left empty, meaning `normal')
+
+
+
+\theoremstyle{thme}
+\newtheorem{theoreme}{Théorème}[section]
+\newtheorem{proposition}[theoreme]{Proposition}
+\newtheorem{corollaire}[theoreme]{Corollaire}
+\newtheorem{propriete}[theoreme]{Propriété}
+\newtheorem{definition}[theoreme]{Définition}
+\newtheorem{lemme}[theoreme]{Lemme}
+\newtheorem{axiome}[theoreme]{Axiome}
+
+\theoremstyle{rem}
+\newtheorem{remarque}[theoreme]{Remarque}
+\newtheorem{rappel}[theoreme]{Rappel}
+\newtheorem{exemple}[theoreme]{Exemple}
+\newtheorem{notation}[theoreme]{Notation}
+\newtheorem{exercice}{Exercice}
+
+
+\newenvironment{indice}
+{\begin{enumerate}[\textup{(}i\textup{)}] }
+{\end{enumerate}}
+
+
+
+%nouvelles commandes
+
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\norme}[1]{\left\|#1\right\|}
+\newcommand{\vaabs}[1]{\left|#1\right|}
+\newcommand{\droit}[1]{\mbox{\textup{#1}}}
+%\newcommand{\grad}{\bigtriangledown}
+%\newcommand{\lap}{\bigtriangleup}
+%\newcommand{\dive}{\mbox{\textup{div }}}
+%\newcommand{\rot}{\mbox{\textup{rot }}}
+%\newcommand{\longu}{\mbox{\textup{long }}}
+%\newcommand{\morc}{\mbox{\textup{morc}}}
+%\newcommand{\diam}{\mbox{\textup{diam }}}
+%\newcommand{\per}{\mbox{\textup{per }}}
+%\newcommand{\re}{\mbox{\textup{Re }}}
+\newcommand{\im}{\mbox{\textup{Im }}}
+%\newcommand{\res}{\mbox{\textup{Rés }}}
+\newcommand{\ssi}{\Leftrightarrow}
+\newcommand{\imp}{\Rightarrow}
+%\newcommand{\Ob}{\overline{\Omega}}
+\newcommand{\dans}{\longrightarrow}
+%\newcommand{\abrn}{([a,b], \R^n)}
+%\newcommand{\inte}{\mbox{\textup{int }}}
+%\newcommand{}{\mbox{\textup{coker\,}}}
+\newcommand{\coker}{\mbox{\textup{coker\,}}}
+\newcommand{\Co}{\mbox{\textup{Co\,}}}
+\newcommand{\Ker}{\mbox{\textup{Ker\,}}}
+\newcommand{\dom}{\mbox{\textup{dom\,}}}
+\newcommand{\cod}{\mbox{\textup{cod\,}}}
+\newcommand{\Ima}{\mbox{\textup{Im\,}}}
+\newcommand{\coima}{\mbox{\textup{coim\,}}}
+\newcommand{\id}{\mbox{\textup{id}}}
+\newcommand{\op}{^{\textup{op}}}
+\newcommand{\Grp}{\textbf{Grp}}
+\newcommand{\Ab}{\textbf{Ab}}
+\newcommand{\Rng}{\textbf{Rng}}
+\newcommand{\Top}{\textbf{Top}}
+\newcommand{\disc}{\mbox{\textup{Disc\,}}}
+\newcommand{\rad}{\mbox{\textup{Rad\,}}}
+\newcommand{\Cl}{\mbox{\textup{Cl\,}}}
+\newcommand{\Gal}{\mbox{\textup{Gal\,}}}
+\newcommand{\Tr}{\mbox{\textup{Tr\,}}}
+\newcommand{\Gl}{\mbox{\textup{Gl}}}
+\newcommand{\Der}{\mbox{\textup{Der}}}
+\newcommand{\Hom}{\mbox{\textup{Hom}}}
+\newcommand{\End}{\mbox{\textup{End}}}
+\newcommand{\Aut}{\mbox{\textup{Aut}}}
+\newcommand{\Sym}{\mbox{\textup{Sym}}}
+\newcommand{\Alt}{\mbox{\textup{Alt}}}
+\newcommand{\GL}{\mbox{\textup{GL}}}
+\newcommand{\Ind}{\mbox{\textup{Ind}}}
+\newcommand{\Res}{\mbox{\textup{Res}}}
+\newcommand{\Spec}{\mbox{\textup{Spec }}}
+\newcommand{\Supp}{\mbox{\textup{Supp }}}
+\newcommand{\ann}{\mbox{\textup{ann }}}
+
+\renewcommand{\qedsymbol}{q.e.d}
+\renewcommand{\epsilon}{\varepsilon}
+
+\newcommand{\graphic}[1]{ $$  \xymatrix@!0 @R=15mm @C=20mm{#1} $$}
+\newcommand{\Graphic}[1]{ $$  \xymatrix@!0 @R=15mm @C=20mm{#1} $$}
+\newcommand{\snake}[1]{ $$  \xymatrix@!0 @R=7mm @C=20mm{#1} $$}
+\newcommand{\tri}[1]{ $$  \xymatrix@!0 @R=7mm @C=20mm{#1} $$}
+
+
+
+
