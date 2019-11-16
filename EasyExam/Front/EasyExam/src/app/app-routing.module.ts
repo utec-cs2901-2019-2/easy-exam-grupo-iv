@@ -9,6 +9,9 @@ import { HistoryComponent } from './views/principal/screens/history/history.comp
 import { SavedQuestionsComponent } from './views/principal/screens/saved-questions/saved-questions.component';
 import { NewexamComponent } from './views/principal/screens/newexam/newexam.component';
 
+import { AuthGuardGuard } from './shared/guards/auth-guard.guard';
+import { LoggedGuardGuard } from './shared/guards/logged-guard.guard';
+
 const routes: Routes = [
   {
     path: 'search',
@@ -16,11 +19,13 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [AuthGuardGuard]
   },
   {
     path: 'register',
-    component: RegisterComponent
+    component: RegisterComponent,
+    canActivate: [AuthGuardGuard]
   },
   {
     path: 'history',
