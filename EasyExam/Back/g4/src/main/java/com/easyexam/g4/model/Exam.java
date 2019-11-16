@@ -154,8 +154,8 @@ public class Exam {
     public void setQuestions(List<Question> questions) {
         this.questions = questions;
     }
-//TODO: mayencourt.sty y retornar url
-public void cook(Boolean solucionario, List<Integer> points) {
+    //TODO: mayencourt.sty y retornar url
+    public void cook(Boolean solucionario, List<Integer> points) {
     String filename = this.id + "test.tex";
     Integer num_questions = questions.size();
     try {
@@ -208,16 +208,15 @@ public void cook(Boolean solucionario, List<Integer> points) {
         writer.write("\\end{document}");
         writer.close();
 
-    } catch (IOException e) {
+        } catch (IOException e) {
+        }
+        try {
+            // compile the generated tex file
+            compileTex(filename);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
-    try {
-        // compile the generated tex file
-        compileTex(filename);
-    } catch (IOException e) {
-        e.printStackTrace();
-    } catch (InterruptedException e) {
-        e.printStackTrace();
-    }
-
-}
 }
