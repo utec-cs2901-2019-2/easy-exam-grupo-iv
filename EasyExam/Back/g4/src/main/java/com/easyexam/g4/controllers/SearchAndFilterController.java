@@ -5,13 +5,17 @@ import com.easyexam.g4.model.Question;
 import com.easyexam.g4.model.Subcategory;
 import com.easyexam.g4.model.api.QuestionRequest;
 import com.easyexam.g4.model.api.QuestionResponse;
+import com.easyexam.g4.model.api.SaveDataRequest;
+import com.easyexam.g4.model.api.SavedQuestionsRequest;
 import com.easyexam.g4.model.repository.CategoryRepository;
 import com.easyexam.g4.model.repository.QuestionRepository;
+import com.easyexam.g4.model.repository.TeacherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -22,6 +26,9 @@ public class SearchAndFilterController {
 
   @Autowired
   CategoryRepository categoryRepository;
+
+  @Autowired
+  TeacherRepository teacherRepository;
 
   @PostMapping("/questions")
   QuestionResponse getQuestions(@RequestBody QuestionRequest request){
@@ -48,6 +55,15 @@ public class SearchAndFilterController {
       for (Subcategory j : i.getSubcategories()) {
         j.setCategory(null);
       }
+    }
+    return response;
+  }
+  @PostMapping("/savedquestions")
+  List<Long> savedq(@RequestBody SavedQuestionsRequest request) {
+    List<Question> questions = teacherRepository.findById(request.email).get().getSelectedq();
+    List<Long> response = new ArrayList<>();
+    for (Question i : questions) {
+      response.add(i.getId());
     }
     return response;
   }

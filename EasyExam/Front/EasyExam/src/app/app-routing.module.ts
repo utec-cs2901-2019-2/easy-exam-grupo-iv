@@ -14,10 +14,6 @@ import { LoggedGuardGuard } from './shared/guards/logged-guard.guard';
 
 const routes: Routes = [
   {
-    path: 'search',
-    component: SeekerComponent
-  },
-  {
     path: 'login',
     component: LoginComponent,
     canActivate: [AuthGuardGuard]
@@ -28,20 +24,35 @@ const routes: Routes = [
     canActivate: [AuthGuardGuard]
   },
   {
-    path: 'history',
-    component: HistoryComponent
-  },
-  {
-    path: 'saved',
-    component: SavedQuestionsComponent
-  },
-  {
-    path: 'config',
-    component: ConfigComponent
-  },
-  {
-    path: 'new',
-    component: NewexamComponent
+    path: '',
+    // canActivate: [LoggedGuardGuard],
+    children: [
+      {
+        path: '',
+        redirectTo: 'search',
+        pathMatch: 'full'
+      },
+      {
+        path: 'search',
+        component: SeekerComponent
+      },
+      {
+        path: 'history',
+        component: HistoryComponent
+      },
+      {
+        path: 'saved',
+        component: SavedQuestionsComponent
+      },
+      {
+        path: 'config',
+        component: ConfigComponent
+      },
+      {
+        path: 'new',
+        component: NewexamComponent
+      }
+    ]
   },
   {
     path: '**',

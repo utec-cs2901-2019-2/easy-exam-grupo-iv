@@ -1,5 +1,6 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { HttpService } from './shared/services/http.service';
+import { AuthService } from './shared/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +8,15 @@ import { HttpService } from './shared/services/http.service';
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent implements OnDestroy {
+export class AppComponent implements OnDestroy, OnInit {
 
-  constructor(public http: HttpService) {
+  constructor(public http: HttpService, public auth: AuthService) {
+    this.http.updatecategories();
+    this.http.updatequestions(1);
   }
 
   ngOnDestroy() {
-    this.http.savedata();
   }
-  owo() {
+  ngOnInit() {
   }
 }

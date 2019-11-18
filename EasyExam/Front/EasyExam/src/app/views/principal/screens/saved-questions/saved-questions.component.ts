@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { HttpService } from '../../../../shared/services/http.service';
+
 @Component({
   selector: 'app-saved-questions',
   templateUrl: './saved-questions.component.html',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SavedQuestionsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public http: HttpService) { }
 
   ngOnInit() {
   }

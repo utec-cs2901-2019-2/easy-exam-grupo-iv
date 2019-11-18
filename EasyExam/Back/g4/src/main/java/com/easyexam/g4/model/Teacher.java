@@ -115,4 +115,8 @@ public class Teacher {
     public void setSelectedq(List<Question> selectedq) {
         this.selectedq = selectedq;
     }
+
+    public List<Question> getSelectedq() {
+        return selectedq;
+    }
 }
