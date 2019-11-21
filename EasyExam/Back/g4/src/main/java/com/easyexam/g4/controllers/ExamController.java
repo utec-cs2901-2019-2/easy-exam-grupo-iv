@@ -34,8 +34,10 @@ public class ExamController {
         Optional<Teacher> teacher = teacherRepository.findById(request.creator);
         Exam exam = new Exam(request.college, request.course, request.rules, request.specs, request.title, request.creation_date, request.exam_date, request.max_points, request.question_number, teacher.get(), request.questions);
         examRepository.save(exam);
-        InputStream in = getClass().getResourceAsStream("com/easyexam/g4/controllers/ola.pdf");
+        InputStream in = getClass().getResourceAsStream("/com/easyexam/g4/controllers/ola.pdf");
+        System.out.println("AAAAAAAAAAAAAAAAAAAAAAa");
         byte[] isr = in.readAllBytes(); // Muero en esta linea
+        System.out.println("AAAAAAAAAAAAAAAAAAAAAAa");
         String fileName = "exam.pdf";
         HttpHeaders respHeaders = new HttpHeaders();
         respHeaders.setContentLength(isr.length);
