@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
@@ -8,7 +8,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class LoggedGuardGuard implements CanActivate {
 
-  constructor(public jwtHelper: JwtHelperService) {}
+  constructor(private jwtHelper: JwtHelperService, private router: Router) {}
 
   canActivate(
     next: ActivatedRouteSnapshot,
@@ -16,10 +16,12 @@ export class LoggedGuardGuard implements CanActivate {
     try {
       const token = this.jwtHelper.decodeToken();
     } catch (err) {
+      this.router.navigate(['/login']);
       return false;
     }
     const date = this.jwtHelper.getTokenExpirationDate();
     if (date === null) {
+      this.router.navigate(['/login']);
       return false;
     }
     if (this.jwtHelper.isTokenExpired()) {

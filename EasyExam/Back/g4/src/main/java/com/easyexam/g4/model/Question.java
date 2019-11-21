@@ -14,7 +14,9 @@ public class Question {
     private String title;
     private Date creation_date;
     private Boolean allowed;
+    @Column(columnDefinition = "TEXT")
     private String answer;
+    @Column(columnDefinition = "TEXT")
     private String description;
     private Integer score;
 
@@ -122,4 +124,5 @@ public class Question {
     public void setSaved(List<Teacher> saved) {
         this.saved = saved;
     }
+
 }

@@ -1,4 +1,27 @@
 <app-navbar></app-navbar>
 <div class="correct unselect">
-
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="text-center"></th>
+        <th class="text-center">#</th>
+        <th>Description</th>
+        <th>Answer</th>
+        <th>Subcategory</th>
+        <th class="text-center">Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let question of questions; let i=index" (click)="openview(i)">
+        <td class="text-center">
+          <mat-checkbox [(ngModel)]="question.selected"></mat-checkbox>
+        </td>
+        <td class="text-center">{{ i+1 }}</td>
+        <td>{{ shortdesc(i) }}</td>
+        <td>{{ question.answer }}</td>
+        <td>{{ shortcat(i) }}</td>
+        <td class="text-center">{{ question.score }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

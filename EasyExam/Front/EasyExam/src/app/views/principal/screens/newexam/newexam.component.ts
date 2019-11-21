@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HttpService } from '../../../../shared/services/http.service';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 import { Exam } from '../../../../shared/interfaces/exam';
+import { SavedqdialogComponent } from '../shared/savedqdialog/savedqdialog.component';
+import { LatexService } from '../../../../shared/services/latex.service';
 
 declare var $: any;
 
@@ -19,18 +23,31 @@ export class NewexamComponent implements OnInit {
     max_points: 0,
     question_number: 0,
     questions: [],
-    subcategories: [],
+    subcategory: '',
     rules: '',
     specs: '',
     title: '',
-    creator: null,
+    creator: this.http.user.email,
   };
-  category: string;
-  constructor(public http: HttpService) {
+  category = '';
+  constructor(private http: HttpService, private router: Router, private dialog: MatDialog, private gen: LatexService) {
   }
 
   ngOnInit() {
     this.http.updatecategories();
   }
 
+  openview() {
+    const dialogRef = this.dialog.open(SavedqdialogComponent, {
+      width: '50vw',
+      height: '70vh',
+      data: {
+        exam: this.exam
+      }
+    });
+  }
+  savedata() {
+    this.gen.exam = this.exam;
+    this.router.navigate(['/preview']);
+  }
 }

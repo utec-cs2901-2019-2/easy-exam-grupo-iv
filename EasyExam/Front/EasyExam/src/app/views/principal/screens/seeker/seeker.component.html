@@ -17,7 +17,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let question of http.questions; let i=index">
+      <tr *ngFor="let question of http.questions; let i=index" (click)="openview(i)">
         <td class="text-center">
           <mat-checkbox [(ngModel)]="question.selected"></mat-checkbox>
         </td>

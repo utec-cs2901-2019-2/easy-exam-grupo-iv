@@ -11,6 +11,7 @@ public class CompileRequest {
     public String rules;
     public String specs;
     public String title;
+    public String subcategory;
     public Date creation_date;
     public Date exam_date;
     public int max_points;

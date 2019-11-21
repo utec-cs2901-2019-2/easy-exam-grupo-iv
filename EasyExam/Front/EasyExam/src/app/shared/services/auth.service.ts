@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 
 import { Injectable } from '@angular/core';
 import { HttpService } from './http.service';
+import { ConnectionService } from './connection.service';
 import { User } from '../interfaces/user';
 
 @Injectable({
@@ -13,56 +14,95 @@ A-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$`;
   admin: boolean;
   user: User;
 
-  constructor(private http: HttpService, private router: Router) { }
+  constructor(private http: HttpService, private router: Router, private connection: ConnectionService) { }
 
   login(email: string, password: string): boolean {
-    this.user = this.http.login(email, password);
-    if (this.user.email === '') {
-      return false;
-    }
-    if (this.user.password !== password) {
-      return false;
-    }
-    this.user.password = '';
-    this.http.user = this.user;
-    this.router.navigate(['/search']);
+    this.connection.login(email, password)
+      .subscribe(
+      (data) => {
+        this.user = {
+          email: data.email,
+          lastName: data.lastName,
+          name: data.name,
+          password: data.password,
+          phone: data.phone,
+          isAdmin: data.isAdmin,
+          points: data.points,
+          exams: [],
+          savedQuestions: []
+        };
+        if (this.user.email === '') {
+          return;
+        }
+        if (this.user.password !== password) {
+          return false;
+        }
+        this.user.password = '';
+        let pass = '';
+        for (const i of this.user.password) {
+          pass += '*';
+        }
+        this.user.password = pass;
+        this.http.user = this.user;
+        localStorage.setItem('access_token', data.token);
+        this.http.loadsavedq();
+      },
+      (err) => {
+        this.user = null;
+        console.log(err);
+      }
+    );
     return true;
   }
 
   register(Name: string, Email: string, Password: string): boolean {
-    this.http.register(Name, Email, Password)
-    this.router.navigate(['/search']);
-    this.user = {
-      email : Email,
-      lastName : '',
-      name : Name,
-      password : '',
-      phone : '',
-      isAdmin: false,
-      points: 0,
-      exams: []
-    };
-    for (const i of Password) {
-      this.user.password += '*';
-    }
-    this.http.user = this.user;
+    this.connection.register(Name, Email, Password)
+    .subscribe(
+      (data) => {
+        localStorage.setItem('access_token', data.token);
+        this.user = {
+          email : Email,
+          lastName : '',
+          name : Name,
+          password : '',
+          phone : '',
+          isAdmin: false,
+          points: 0,
+          exams: [],
+          savedQuestions: []
+        };
+        for (const i of Password) {
+          this.user.password += '*';
+        }
+        this.http.user = this.user;
+        this.router.navigate(['/search']);
+      }
+    );
     return true;
   }
 
   logout() {
-    localStorage.removeItem('access_token');
-    this.router.navigate(['login']);
-    this.user = {
-      email : '',
-      lastName : '',
-      name : '',
-      password : '',
-      phone : '',
-      isAdmin: false,
-      points: 0,
-      exams: []
-    };
-    this.http.user = this.user;
+    this.http.savedata(true,
+      () => {
+        localStorage.removeItem('access_token');
+        this.router.navigate(['login']);
+        this.user = {
+          email : '',
+          lastName : '',
+          name : '',
+          password : '',
+          phone : '',
+          isAdmin: false,
+          points: 0,
+          exams: [],
+          savedQuestions: []
+        };
+        this.http.user = this.user;
+        for (const i of this.http.questions) {
+          i.selected = false;
+        }
+      }
+    );
   }
 
   loggedIn(): boolean {
