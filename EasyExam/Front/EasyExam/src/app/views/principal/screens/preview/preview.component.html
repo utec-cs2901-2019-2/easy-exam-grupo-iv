@@ -1,1 +1,30 @@
-<p>preview works!</p>
+<app-navbar></app-navbar>
+<div class="correct unselect">
+  <div class="row contain unselect" *ngFor="let question of tex.exam.questions; let i=index">
+    <div class="card">
+      <div class="card-header card-header-primary">
+        <div class="row ">
+          <div class="col-6">
+            Score: {{ question.score }}
+          </div>
+          <div class="col-6 r">
+            <div class ="inline"><input class="form-control" type="number" [(ngModel)]="scores[i]"></div>
+            <a *ngIf="selected[i]" (click)="likeordis(true, i)"><i class="fa fa-thumbs-up"></i></a>
+            <a *ngIf="selected[i]"(click)="likeordis(false, i)"><i class="fa fa-thumbs-down"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <h4 class="card-title">Description</h4>
+        <div class="row">
+          {{ question.description }}
+        </div>
+        <h4 class="card-title">Answer</h4>
+        <div class="row">
+          {{ question.answer }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="genexam"><button class="btn btn-primary btn-round" (click)="generate()">Generate Exam</button></div>
+</div>

@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import {HttpResponse} from '@angular/common/http';
+import {Http, ResponseContentType} from '@angular/http';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
@@ -21,6 +23,7 @@ export class ConnectionService {
   saveurl = '/savedata';
   savedqurl = '/savedquestions';
   loadurl = '/loadq';
+  compileurl = '/compile';
   forgoturl = '';
 
   constructor(private http: HttpClient) {}
@@ -51,5 +54,9 @@ export class ConnectionService {
 
   savedata(response) {
     return this.http.post(this.url + this.saveurl, response);
+  }
+
+  compile(response) {
+    return this.http.post<HttpResponse<Blob>>(this.url + this.compileurl, response);
   }
 }

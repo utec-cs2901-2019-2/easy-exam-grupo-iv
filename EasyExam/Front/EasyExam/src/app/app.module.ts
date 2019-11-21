@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HistoryComponent } from './views/principal/screens/history/history.component';
 import { QuestiondialogComponent } from './views/principal/screens/shared/questiondialog/questiondialog.component';
 import { NewexamComponent } from './views/principal/screens/newexam/newexam.component';
+import { SavedqdialogComponent } from './views/principal/screens/shared/savedqdialog/savedqdialog.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { NewexamComponent } from './views/principal/screens/newexam/newexam.comp
     SeekerComponent,
     HistoryComponent,
     QuestiondialogComponent,
-    NewexamComponent
+    NewexamComponent,
+    SavedqdialogComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +56,12 @@ import { NewexamComponent } from './views/principal/screens/newexam/newexam.comp
       }
     })
   ],
-  providers: [],
+  providers: [
+  ],
+  entryComponents: [
+    QuestiondialogComponent,
+    SavedqdialogComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

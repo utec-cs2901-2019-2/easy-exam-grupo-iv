@@ -9,30 +9,32 @@
         </div>
         <div class="col-6 form-group">
           <label for="institution">Institucion Educativa</label>
-          <input class="form-control" type="text" id="institution">
+          <input class="form-control" type="text" id="institution"[(ngModel)]="exam.college">
         </div>
       </div>
       <div class="row">
         <div class="col-6 form-group">
           <label for="date">Fecha del Examen</label>
-          <input class="form-control" type="text" id="date" [(ngModel)]="exam.date">
+          <input class="form-control" id="date" [matDatepicker]="picker" [(ngModel)]="exam.exam_date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
         </div>
         <div class="col-6 form-group">
           <label for="categories">Categoria</label>
           <select id="categories" class="form-control selectpicker" data-style="btn btn-link" [(ngModel)]="category">
-            <option *ngFor="let cat of http.categories">{{ cat.name }}</option>
+            <option *ngFor="let cat of http.categories" [ngValue]="cat">{{ cat.name }}</option>
           </select>
         </div>
       </div>
       <div class="row">
         <div class="col-6 form-group">
           <label>Curso</label>
-          <input class="form-control" type="text" [(ngModel)]="exam.date">
+          <input class="form-control" type="text" [(ngModel)]="exam.course">
         </div>
         <div class="col-6 form-group">
           <label>Subcategorias</label>
-          <select class="form-control selectpicker" data-style="btn btn-link" [(ngModel)]="exam.subcategories">
-            <option *ngFor="let cat of category?.subcategories">{{ cat.name }}</option>
+          <select class="form-control selectpicker" data-style="btn btn-link" [(ngModel)]="exam.subcategory">
+            <option *ngFor="let cat of category.subcategories" [ngValue]="cat.name" >{{ cat.name }}</option>
           </select>
         </div>
       </div>
@@ -60,8 +62,8 @@
   </div>
   <div class="buttons">
     <div class="container">
-      <div class="split"><button class="btn btn-primary">Preguntas Guardadas</button></div>
-      <div class="split"><button class="btn btn-primary">Generar Examen</button></div>
+      <div class="split"><button class="btn btn-primary" (click)="openview()">Preguntas Guardadas</button></div>
+      <div class="split"><button class="btn btn-primary" (click)="savedata()">Generar Examen</button></div>
     </div>
   </div>
 </div>

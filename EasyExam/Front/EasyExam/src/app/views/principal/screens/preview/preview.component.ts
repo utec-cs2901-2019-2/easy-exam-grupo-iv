@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { LatexService } from '../../../../shared/services/latex.service';
+
+import { HttpService } from '../../../../shared/services/http.service';
 
 @Component({
   selector: 'app-preview',
@@ -7,9 +10,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PreviewComponent implements OnInit {
 
-  constructor() { }
+  selected: boolean[] = [];
+  scores: number[] = [];
+
+  constructor(public tex: LatexService, public http: HttpService) { }
 
   ngOnInit() {
+    console.log(this.tex.exam);
+    for (const i of this.tex.exam.questions) {
+      this.selected.push(true);
+    }
+    for (const i of this.tex.exam.questions) {
+      this.scores.push(0);
+    }
   }
-
+  likeordis(like: boolean, index: number) {
+    if (like) {
+      this.tex.exam.questions[index].score += 1;
+    } else {
+      this.tex.exam.questions[index].score -= 1;
+    }
+    this.selected[index] = false;
+  }
+  generate() {
+    this.tex.scores = this.scores;
+    this.http.generate();
+  }
 }

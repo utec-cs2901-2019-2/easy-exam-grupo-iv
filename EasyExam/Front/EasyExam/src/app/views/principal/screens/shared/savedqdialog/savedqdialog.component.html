@@ -1,0 +1,26 @@
+<div class="row contain unselect" *ngFor="let question of getquestions(); let i=index">
+  <div class="card">
+    <div class="card-header card-header-primary">
+      <div class="row ">
+        <div class="col-6">
+          Score: {{ question.score }}
+        </div>
+        <div class="col-6 r">
+          <div class="check">
+            <mat-checkbox [(ngModel)]="selected[i]"></mat-checkbox>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">Description</h4>
+      <div class="row">
+        {{ question.description }}
+      </div>
+      <h4 class="card-title">Answer</h4>
+      <div class="row">
+        {{ question.answer }}
+      </div>
+    </div>
+  </div>
+</div>

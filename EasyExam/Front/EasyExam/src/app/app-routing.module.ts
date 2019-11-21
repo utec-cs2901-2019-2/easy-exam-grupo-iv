@@ -8,6 +8,7 @@ import { ConfigComponent } from './views/principal/screens/config/config.compone
 import { HistoryComponent } from './views/principal/screens/history/history.component';
 import { SavedQuestionsComponent } from './views/principal/screens/saved-questions/saved-questions.component';
 import { NewexamComponent } from './views/principal/screens/newexam/newexam.component';
+import { PreviewComponent } from './views/principal/screens/preview/preview.component';
 
 import { AuthGuardGuard } from './shared/guards/auth-guard.guard';
 import { LoggedGuardGuard } from './shared/guards/logged-guard.guard';
@@ -51,6 +52,10 @@ const routes: Routes = [
       {
         path: 'new',
         component: NewexamComponent
+      },
+      {
+        path: 'preview',
+        component: PreviewComponent
       }
     ]
   },

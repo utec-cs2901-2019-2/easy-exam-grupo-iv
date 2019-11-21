@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import * as fileSaver from 'file-saver';
 
 import { User } from '../interfaces/user';
 import { Exam } from '../interfaces/exam';
@@ -10,6 +11,7 @@ import { Question } from '../classes/question';
 import { Category } from '../classes/category';
 import { Subcategory } from '../classes/subcategory';
 import { ConnectionService } from './connection.service';
+import { LatexService } from './latex.service';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +24,7 @@ export class HttpService {
   questions: Question[] = [];
   categories: Category[] = [];
 
-  constructor(private connection: ConnectionService, private router: Router) {
+  constructor(private connection: ConnectionService, private tex: LatexService, private router: Router) {
   }
 
   register(Name: string, Email: string, Password: string) {
@@ -113,6 +115,23 @@ export class HttpService {
         if (data) {
           exec();
         }
+      }
+    );
+  }
+  generate() {
+    let request;
+    request = {
+      ...this.tex.exam,
+      scores: this.tex.scores,
+      solution: false
+    };
+    this.connection.compile(request)
+    .subscribe(
+      (response) => {
+        const file = new Blob([response.body], { type: 'application/pdf'});
+        const fileURL = URL.createObjectURL(file);
+        window.open(fileURL);
+        fileSaver.saveAs(file, 'exam.pdf');
       }
     );
   }

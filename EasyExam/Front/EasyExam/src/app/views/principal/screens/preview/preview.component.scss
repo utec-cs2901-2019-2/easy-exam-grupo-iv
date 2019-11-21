@@ -1,0 +1,34 @@
+.r {
+  display: flex;
+  justify-content: flex-end;
+  a {
+    color: white;
+    font-size: 25px;
+    margin-right: 5px;
+  }
+}
+
+.contain {
+  padding: 0.5em 2em;
+  width: 100%;
+  height: fit-content;
+}
+
+.genexam {
+  position: fixed;
+  left: 85vw;
+  top: 85vh;
+}
+
+.inline {
+  display: flex;
+  height: 80%;
+  right: 20px;
+  top: 6px;
+  position: relative;
+  width: 3em;
+  .form-control {
+    padding: 0 !important;
+    height: 80% !important;
+  }
+}

@@ -10,9 +10,9 @@ export interface Exam {
   max_points: number;
   question_number: number;
   questions: Question[];
-  subcategories: Subcategory[];
+  subcategory: string;
   rules: string;
   specs: string;
   title: string;
-  creator: User;
+  creator: string;
 }

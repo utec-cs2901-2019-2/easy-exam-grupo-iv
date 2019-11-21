@@ -4,6 +4,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import { Question } from '../../../../shared/classes/question';
 import { HttpService } from '../../../../shared/services/http.service';
 import { AuthService } from '../../../../shared/services/auth.service';
+import { QuestiondialogComponent } from '../shared/questiondialog/questiondialog.component';
 
 @Component({
   selector: 'app-seeker',
@@ -13,7 +14,8 @@ import { AuthService } from '../../../../shared/services/auth.service';
 
 export class SeekerComponent implements OnInit, OnDestroy {
 
-  constructor(public http: HttpService, private auth: AuthService) { }
+  constructor(public http: HttpService, private auth: AuthService, public dialog: MatDialog) { }
+
   ngOnInit() {
   }
   ngOnDestroy() {
@@ -65,5 +67,20 @@ export class SeekerComponent implements OnInit, OnDestroy {
       a = a + '...';
     }
     return a;
+  }
+  openview(a) {
+    const dialogRef = this.dialog.open(QuestiondialogComponent, {
+      width: '50vw',
+      height: '50vh',
+      data: {
+        description: this.http.questions[a].description,
+        answer: this.http.questions[a].answer,
+        subcategory: this.http.questions[a].subcategory,
+        score: this.http.questions[a].score
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 }
