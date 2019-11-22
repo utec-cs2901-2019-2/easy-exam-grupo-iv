@@ -1,10 +1,9 @@
 package com.easyexam.g4.controllers;
 
+import com.easyexam.g4.model.Exam;
 import com.easyexam.g4.model.Teacher;
-import com.easyexam.g4.model.api.LoginRequest;
-import com.easyexam.g4.model.api.LoginResponse;
-import com.easyexam.g4.model.api.RegisterRequest;
-import com.easyexam.g4.model.api.RegisterResponse;
+import com.easyexam.g4.model.api.*;
+import com.easyexam.g4.model.repository.ExamRepository;
 import com.easyexam.g4.model.repository.TeacherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +17,7 @@ public class AuthController {
 
   @Autowired
   TeacherRepository teacherRepository;
+  ExamRepository examRepository;
 
   @PostMapping("/login")
   LoginResponse login(@RequestBody LoginRequest request){
@@ -37,4 +37,8 @@ public class AuthController {
     teacherRepository.save(new Teacher(request.email, "", request.name, request.password, "", false));
     return new RegisterResponse("Ingrese Token Aqui");
   }
+
+
+
+
 }

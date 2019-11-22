@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 public class CompileRequest {
+
     public String college;
     public String course;
     public String rules;

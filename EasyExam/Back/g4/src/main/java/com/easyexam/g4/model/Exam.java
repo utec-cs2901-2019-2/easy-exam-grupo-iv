@@ -156,6 +156,13 @@ public class Exam {
     }
     //TODO: mayencourt.sty y retornar url
     public void cook(Boolean solucionario, List<Integer> points) {
+        String currentd = null;
+        try {
+            currentd = new File( "." ).getCanonicalPath();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("looking for mayencourt:"+currentd);
     String filename = this.id + "test.tex";
     Integer num_questions = questions.size();
     try {
@@ -218,5 +225,13 @@ public class Exam {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
