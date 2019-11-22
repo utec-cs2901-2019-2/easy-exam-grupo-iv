@@ -18,6 +18,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -48,8 +49,14 @@ public class ExamController {
 
     }
     @GetMapping("/teacherExams") public @ResponseBody
-    List<Exam> examsPerTeacher(@RequestBody SavedQuestionsRequest myEmail){
-        return examRepository.findAllByCreator(myEmail.email);
+    List<Long> examsPerTeacher(@RequestBody SavedQuestionsRequest myEmail){
+        List<Long> toReturn = new ArrayList<>();
+       List<Exam> myList=  examRepository.findAllByCreator(myEmail.email);
+       for (Exam x:myList){
+           toReturn.add(x.getId());
+       }
+       return toReturn;
+
     }
 
 }
