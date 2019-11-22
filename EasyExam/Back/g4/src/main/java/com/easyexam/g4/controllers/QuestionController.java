@@ -39,14 +39,14 @@ public class QuestionController {
     TeacherRepository teacherRepository;
     @PostMapping("/questionPOST") public void AddQuestion(@RequestBody QuestionPOSTRequest questionRequest){
     Question myQuestion = new Question();
-    myQuestion.setAnswer(questionRequest.getAnswer());
-    myQuestion.setCreation_date(questionRequest.getCreation_date());
-    Teacher author = teacherRepository.findById(questionRequest.getCreatorID()).get();
+    myQuestion.setAnswer(questionRequest.answer);
+    myQuestion.setCreation_date(questionRequest.creation_date);
+    Teacher author = teacherRepository.findById(questionRequest.creatorID).get();
     myQuestion.setCreator(author);
-    myQuestion.setTitle(questionRequest.getTitle());
-    myQuestion.setDescription(questionRequest.getDescription());
+    myQuestion.setTitle(questionRequest.title);
+    myQuestion.setDescription(questionRequest.description);
     List<Subcategory> subs = new ArrayList<>();
-    List<Long> reqSubs = questionRequest.getSubcategories();
+    List<Long> reqSubs = questionRequest.subcategories;
     for (long temp: reqSubs){
         Subcategory mySub = subcategoryRepository.findById(temp).get();
         subs.add(mySub);

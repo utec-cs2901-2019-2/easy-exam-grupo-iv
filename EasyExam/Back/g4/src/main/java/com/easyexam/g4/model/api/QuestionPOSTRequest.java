@@ -4,13 +4,13 @@ import java.util.Date;
 import java.util.List;
 
 public class QuestionPOSTRequest {
-    String creatorID;//done
-    String title; //done
-    Date creation_date;//done
-    Boolean allowed; //constructor
-    String answer; //done
-    String description; //done
-    List<Long> subcategories;
+    public String creatorID;//done
+    public String title; //done
+    public Date creation_date;//done
+    public Boolean allowed; //constructor
+    public String answer; //done
+   public  String description; //done
+    public List<Long> subcategories;
 
 
     public String getCreatorID() {
