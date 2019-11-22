@@ -26,7 +26,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    // canActivate: [LoggedGuardGuard],
+    canActivate: [LoggedGuardGuard],
     children: [
       {
         path: '',

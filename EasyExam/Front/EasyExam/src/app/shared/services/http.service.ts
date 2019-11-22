@@ -125,6 +125,7 @@ export class HttpService {
       scores: this.tex.scores,
       solution: false
     };
+    console.log(JSON.stringify(request));
     this.connection.compile(request)
     .subscribe(
       (response) => {

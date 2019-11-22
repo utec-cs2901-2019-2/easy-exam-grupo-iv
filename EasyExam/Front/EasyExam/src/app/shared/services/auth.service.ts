@@ -38,11 +38,6 @@ A-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$`;
           return false;
         }
         this.user.password = '';
-        let pass = '';
-        for (const i of this.user.password) {
-          pass += '*';
-        }
-        this.user.password = pass;
         this.http.user = this.user;
         localStorage.setItem('access_token', data.token);
         this.http.loadsavedq();
@@ -71,9 +66,6 @@ A-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$`;
           exams: [],
           savedQuestions: []
         };
-        for (const i of Password) {
-          this.user.password += '*';
-        }
         this.http.user = this.user;
         this.router.navigate(['/search']);
       }
@@ -107,6 +99,31 @@ A-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$`;
 
   loggedIn(): boolean {
     return localStorage.getItem('access_token') !== null;
+  }
+
+  getuser() {
+    const request = {
+      token: localStorage.getItem('access_token')
+    }
+    this.connection.getuset(request)
+    .subscribe(
+      (data) => {
+        this.user = {
+          email: data.email,
+          lastName: data.lastName,
+          name: data.name,
+          password: data.password,
+          phone: data.phone,
+          isAdmin: data.isAdmin,
+          points: data.points,
+          exams: [],
+          savedQuestions: []
+        };
+        this.user.password = '';
+        this.http.user = this.user;
+        localStorage.setItem('access_token', data.token);
+      }
+    );
   }
 
   forgotPassword(email: string) {}
