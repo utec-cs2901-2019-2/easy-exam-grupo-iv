@@ -1,7 +1,10 @@
 package com.easyexam.g4.controllers;
+import com.easyexam.g4.model.Question;
+import com.easyexam.g4.model.Subcategory;
 import com.easyexam.g4.model.api.QuestionPOSTRequest;
 import com.easyexam.g4.model.api.QuestionRequest;
 import com.easyexam.g4.model.repository.QuestionRepository;
+import com.easyexam.g4.model.repository.SubcategoryRepository;
 import org.apache.commons.io.IOUtils;
 import com.easyexam.g4.model.Exam;
 import com.easyexam.g4.model.Teacher;
@@ -22,15 +25,33 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
 public class QuestionController {
     @Autowired
+    SubcategoryRepository subcategoryRepository;
+    @Autowired
     QuestionRepository questionRepository;
     @Autowired
     TeacherRepository teacherRepository;
-    @PostMapping("/question") public void AddQuestion(@RequestBody QuestionPOSTRequest questionRequest){
-
+    @PostMapping("/questionPOST") public void AddQuestion(@RequestBody QuestionPOSTRequest questionRequest){
+    Question myQuestion = new Question();
+    myQuestion.setAnswer(questionRequest.getAnswer());
+    myQuestion.setCreation_date(questionRequest.getCreation_date());
+    Teacher author = teacherRepository.findById(questionRequest.getCreatorID()).get();
+    myQuestion.setCreator(author);
+    myQuestion.setTitle(questionRequest.getTitle());
+    myQuestion.setDescription(questionRequest.getDescription());
+    List<Subcategory> subs = new ArrayList<>();
+    List<Long> reqSubs = questionRequest.getSubcategories();
+    for (long temp: reqSubs){
+        Subcategory mySub = subcategoryRepository.findById(temp).get();
+        subs.add(mySub);
+    }
+    myQuestion.setSubcategory(subs);
+    questionRepository.save(myQuestion);
     }
 }

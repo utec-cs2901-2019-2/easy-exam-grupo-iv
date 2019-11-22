@@ -43,6 +43,7 @@ public class Question {
 
     public Question() {
         score = 0;
+        allowed = false;
     }
 
     public void like() {
