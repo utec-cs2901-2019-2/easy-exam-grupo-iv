@@ -29,7 +29,7 @@ public class ApiController {
     return "Hello";
   }
 
-  @PostMapping("/savedata")
+  @PostMapping("/api/savedata")
   public void save(@RequestBody SaveDataRequest request) {
     Optional<Teacher> teacher = teacherRepository.findById(request.email);
     Teacher selected = teacher.get();
