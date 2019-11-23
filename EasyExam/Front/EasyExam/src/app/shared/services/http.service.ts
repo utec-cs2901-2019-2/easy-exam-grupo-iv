@@ -129,7 +129,7 @@ export class HttpService {
     this.connection.compile(request)
     .subscribe(
       (response) => {
-        const file = new Blob([response.body], { type: 'application/pdf'});
+        const file = new Blob([response], { type: 'application/pdf'});
         const fileURL = URL.createObjectURL(file);
         window.open(fileURL);
         fileSaver.saveAs(file, 'exam.pdf');

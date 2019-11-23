@@ -59,7 +59,7 @@ export class ConnectionService {
   }
 
   compile(response) {
-    return this.http.post<HttpResponse<Blob>>(this.url + this.apiurl + this.compileurl, response);
+    return this.http.post<Blob>(this.url + this.apiurl + this.compileurl, response, { responseType: 'blob' as 'json' });
   }
   getuset(response) {
     return this.http.post<{email: string; lastName: string; name: string; password: string; phone: string; isAdmin: boolean;

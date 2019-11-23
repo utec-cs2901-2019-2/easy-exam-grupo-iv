@@ -28,7 +28,7 @@ public class ExamController {
     TeacherRepository teacherRepository;
 
     @PostMapping(
-            value = "/compile",
+            value = "/api/compile",
             produces = MediaType.APPLICATION_PDF_VALUE
     )
     public @ResponseBody
@@ -39,11 +39,11 @@ public class ExamController {
         exam.cook(Boolean.TRUE, request.scores);
 
         //myshit
+
         File myPDF = new File(exam.getId() + "test.pdf");
-
         InputStream in = new FileInputStream(myPDF);
-       return IOUtils.toByteArray(in);
-        //myshit ends
+        return IOUtils.toByteArray(in);
 
+        //myshit ends
     }
 }

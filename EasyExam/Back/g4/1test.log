@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.11.22)  22 NOV 2019 11:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.11.22)  23 NOV 2019 15:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1097,7 +1097,7 @@ File: tikzlibrarypatterns.code.tex 2019/08/03 v3.1.4b (3.1.4b)
 (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibrarypatterns.code.tex
 File: pgflibrarypatterns.code.tex 2019/08/03 v3.1.4b (3.1.4b)
 ))
-No file 1test.aux.
+(./1test.aux)
 \openout1 = `1test.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 1.
@@ -1114,7 +1114,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 1.
 LaTeX Font Info:    ... okay on input line 1.
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 1.
 
-(/usr/share/texmf-dist/tex/latex/lm/t1lmr.fd
+ (/usr/share/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -1247,27 +1247,19 @@ enefit from \pgfplotsset{compat=1.16} (current compat level: 1.15).
 This exam contains 1 questions with 0 parts, 0 subparts, and 0 subsubparts.
 This exam has a total of 0 points.
 This exam has a total of 0 bonus points.
-
-Class exam Warning: Point totals have changed. Rerun to get point totals right.
-
-
-(./1test.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+(./1test.aux) ) 
 Here is how much of TeX's memory you used:
- 40032 strings out of 492167
- 881590 string characters out of 6131557
- 1076045 words of memory out of 5000000
+ 40034 strings out of 492167
+ 881609 string characters out of 6131557
+ 1076158 words of memory out of 5000000
  43790 multiletter control sequences out of 15000+600000
  559613 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,10n,119p,5355b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf-dist/fo
-nts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr
-12.pfb>
-Output written on 1test.pdf (4 pages, 56072 bytes).
+ 71i,10n,119p,5405b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/
+texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/
+public/lm/lmr12.pfb>
+Output written on 1test.pdf (4 pages, 56749 bytes).
 PDF statistics:
  29 PDF objects out of 1000 (max. 8388607)
  20 compressed objects within 1 object stream
