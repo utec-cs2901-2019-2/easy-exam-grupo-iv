@@ -17,15 +17,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let question of http.questions; let i=index" (click)="openview(i)">
+      <tr *ngFor="let question of http.questions; let i=index">
         <td class="text-center">
           <mat-checkbox [(ngModel)]="question.selected"></mat-checkbox>
         </td>
-        <td class="text-center">{{ i+1 }}</td>
-        <td>{{ shortdesc(i) }}</td>
-        <td>{{ question.answer }}</td>
-        <td>{{ shortcat(i) }}</td>
-        <td class="text-center">{{ question.score }}</td>
+        <td class="text-center" (click)="openview(i)">{{ i+1 }}</td>
+        <td (click)="openview(i)">{{ shortdesc(i) }}</td>
+        <td (click)="openview(i)">{{ question.answer }}</td>
+        <td (click)="openview(i)">{{ shortcat(i) }}</td>
+        <td class="text-center" (click)="openview(i)">{{ question.score }}</td>
       </tr>
     </tbody>
   </table>

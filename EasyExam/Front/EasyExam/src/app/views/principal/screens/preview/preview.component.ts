@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { LatexService } from '../../../../shared/services/latex.service';
 
 import { HttpService } from '../../../../shared/services/http.service';
@@ -8,21 +8,26 @@ import { HttpService } from '../../../../shared/services/http.service';
   templateUrl: './preview.component.html',
   styleUrls: ['./preview.component.scss']
 })
-export class PreviewComponent implements OnInit {
+export class PreviewComponent implements OnInit, OnDestroy {
 
   selected: boolean[] = [];
   scores: number[] = [];
 
-  constructor(public tex: LatexService, public http: HttpService) { }
+  constructor(public tex: LatexService, public http: HttpService) {
+    console.log('Me Construyo');
+  }
 
   ngOnInit() {
-    console.log(this.tex.exam);
+    console.log('Me Cargo');
     for (const i of this.tex.exam.questions) {
       this.selected.push(true);
     }
     for (const i of this.tex.exam.questions) {
       this.scores.push(0);
     }
+  }
+  ngOnDestroy() {
+    this.tex.exam = null;
   }
   likeordis(like: boolean, index: number) {
     if (like) {
