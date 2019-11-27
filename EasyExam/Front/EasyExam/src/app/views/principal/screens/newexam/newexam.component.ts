@@ -29,8 +29,8 @@ export class NewexamComponent implements OnInit {
     title: '',
     creator: this.http.user.email,
   };
-  category = '';
-  constructor(private http: HttpService, private router: Router, private dialog: MatDialog, private gen: LatexService) {
+  category = null;
+  constructor(public http: HttpService, private router: Router, private dialog: MatDialog, private gen: LatexService) {
   }
 
   ngOnInit() {

@@ -23,6 +23,10 @@ import { NewexamComponent } from './views/principal/screens/newexam/newexam.comp
 import { SavedqdialogComponent } from './views/principal/screens/shared/savedqdialog/savedqdialog.component';
 import { NewquestionComponent } from './views/principal/screens/newquestion/newquestion.component';
 
+export function gettoken() {
+  return localStorage.getItem('access_token');
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +43,7 @@ import { NewquestionComponent } from './views/principal/screens/newquestion/newq
     QuestiondialogComponent,
     NewexamComponent,
     SavedqdialogComponent,
-    NewquestionComponent,
+    NewquestionComponent
   ],
   imports: [
     BrowserModule,
@@ -50,9 +54,7 @@ import { NewquestionComponent } from './views/principal/screens/newquestion/newq
     HttpClientModule,
     JwtModule.forRoot({
       config: {
-        tokenGetter: () => {
-          return localStorage.getItem('access_token');
-        },
+        tokenGetter: gettoken,
         whitelistedDomains: ['localhost:4200'],
         blacklistedRoutes: ['http://localhost:4200/login']
       }

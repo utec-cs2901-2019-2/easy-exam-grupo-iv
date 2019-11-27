@@ -21,8 +21,8 @@
           </div>
           <mat-form-field class="form-group col-6">
             <label>Subcategory</label>
-            <mat-select [(ngModel)]="question.Subcategory" multiple>
-              <mat-option *ngFor="let cat of category.subcategories" (click)="push(cat)" [value]="cat">{{cat.name}}</mat-option>
+            <mat-select [(ngModel)]="question.subcategory" multiple>
+              <mat-option *ngFor="let cat of category.subcategories" [value]="cat">{{cat.name}}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>

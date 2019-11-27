@@ -26,7 +26,7 @@ export class NewquestionComponent implements OnInit {
   category = {
     subcategories: []
   };
-  constructor(private http: HttpService, private conn: ConnectionService) { }
+  constructor(public http: HttpService, private conn: ConnectionService) { }
 
   ngOnInit() {
     this.http.updatecategories();
