@@ -34,7 +34,7 @@ public class Exam {
             joinColumns = @JoinColumn(name = "exam_id"),
             inverseJoinColumns = @JoinColumn(name = "question_id")
     )
-    List<Question> questions;
+    public List<Question> questions;
 
     public Exam() {
     }
@@ -163,57 +163,57 @@ public class Exam {
             e.printStackTrace();
         }
         System.out.println("looking for mayencourt:"+currentd);
-    String filename = this.id + "test.tex";
-    Integer num_questions = questions.size();
-    try {
-        BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
-        String boilerplateStart = "\\documentclass[12pt, addpoints]{exam}\\usepackage{mayencourt}\\usepackage{xpatch}\\xapptocmd{\\@item}{\\label{en:\\arabic{page}\\alph{enumi}}}{}{}\\pgfplotsset{compat=1.15}\\usetikzlibrary{patterns}\\pagestyle{headandfoot}\\extraheadheight{1cm}\\runningheadrule\\firstpageheader{\\huge \\textbf{"
-                + this.college
-                + "}}                {    \\textbf{ Course : \\\\                      Date:\\\\                      Number of questions :\\\\                      "
-                + this.course + "}                 }                {   \\textbf{" + this.course
-                + "\\\\                    " + this.exam_date + "\\\\                    " + this.question_number
-                + "\\\\                    Points: " + this.max_points + "}}\\runningheader{\\huge \\textbf{"
-                + this.college
-                + "}}                {    \\textbf{ Course : \\\\                      Date:\\\\                      Number of questions :\\\\                      "
-                + this.course + "}                 }                {   \\textbf{" + this.title
-                + "\\\\                    " + this.exam_date + "\\\\                    " + this.question_number
-                + "\\\\                    Points: " + this.max_points
-                + "}}\\begin{document}\\printanswers\\vspace{5cm}\\begin{center}\\begin{tabular}{|l|l|}\\hline&\\\\\\makebox[0.4\\textwidth]{Name : \\enspace\\hrulefill}    & \\makebox[0.4\\textwidth]{Student code : \\enspace\\hrulefill}  \\\\&\\\\\\makebox[0.4\\textwidth]{Surnames : \\enspace\\hrulefill}     & \\makebox[0.4\\textwidth]{Major : \\enspace\\hrulefill}\\\\&\\\\\\hline\\end{tabular}\\end{center}\\vspace{5cm}";
-        // hasta el begin itemize
-        String sign_here = "\\vspace{5cm}\\begin{tabular}{ll}Signatures : & \\makebox[0.4\\textwidth]{ \\enspace\\hrulefill}	\\\\&\\\\&\\\\& \\makebox[0.4\\textwidth]{ \\enspace\\hrulefill}\\\\\\end{tabular}\\newpage";
-        writer.write(boilerplateStart);
-        writer.write(sign_here);
-        writer.write("\\vspace{3cm}\\textbf{Instructions :}");
-        writer.write(this.rules);
-        writer.write("\\newpage");
+        String filename = this.id + "test.tex";
+        Integer num_questions = questions.size();
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
+            String boilerplateStart = "\\documentclass[12pt, addpoints]{exam}\\usepackage{mayencourt}\\usepackage{xpatch}\\xapptocmd{\\@item}{\\label{en:\\arabic{page}\\alph{enumi}}}{}{}\\pgfplotsset{compat=1.15}\\usetikzlibrary{patterns}\\pagestyle{headandfoot}\\extraheadheight{1cm}\\runningheadrule\\firstpageheader{\\huge \\textbf{"
+                    + this.college
+                    + "}}                {    \\textbf{ Course : \\\\                      Date:\\\\                      Number of questions :\\\\                      "
+                    + this.course + "}                 }                {   \\textbf{" + this.course
+                    + "\\\\                    " + this.exam_date + "\\\\                    " + this.question_number
+                    + "\\\\                    Points: " + this.max_points + "}}\\runningheader{\\huge \\textbf{"
+                    + this.college
+                    + "}}                {    \\textbf{ Course : \\\\                      Date:\\\\                      Number of questions :\\\\                      "
+                    + this.course + "}                 }                {   \\textbf{" + this.title
+                    + "\\\\                    " + this.exam_date + "\\\\                    " + this.question_number
+                    + "\\\\                    Points: " + this.max_points
+                    + "}}\\begin{document}\\printanswers\\vspace{5cm}\\begin{center}\\begin{tabular}{|l|l|}\\hline&\\\\\\makebox[0.4\\textwidth]{Name : \\enspace\\hrulefill}    & \\makebox[0.4\\textwidth]{Student code : \\enspace\\hrulefill}  \\\\&\\\\\\makebox[0.4\\textwidth]{Surnames : \\enspace\\hrulefill}     & \\makebox[0.4\\textwidth]{Major : \\enspace\\hrulefill}\\\\&\\\\\\hline\\end{tabular}\\end{center}\\vspace{5cm}";
+            // hasta el begin itemize
+            String sign_here = "\\vspace{5cm}\\begin{tabular}{ll}Signatures : & \\makebox[0.4\\textwidth]{ \\enspace\\hrulefill}	\\\\&\\\\&\\\\& \\makebox[0.4\\textwidth]{ \\enspace\\hrulefill}\\\\\\end{tabular}\\newpage";
+            writer.write(boilerplateStart);
+            writer.write(sign_here);
+            writer.write("\\vspace{3cm}\\textbf{Instructions :}");
+            writer.write(this.rules);
+            writer.write("\\newpage");
 
-        writer.write("\\begin{questions}");
-        for (int i = 0; i < num_questions; i++) {
-            Question current = questions.get(i);
-            String buffer = "\\question" + '[' + points.get(i) + "] " + current.getTitle() + "\\newline "
-                    + current.getDescription();
-            writer.write(buffer);
-            if (solucionario) {
-                String answerBuffer = current.getAnswer();
+            writer.write("\\begin{questions}");
+            for (int i = 0; i < num_questions; i++) {
+                Question current = questions.get(i);
+                String buffer = "\\question" + '[' + points.get(i) + "] "
+                        + current.getDescription();
+                writer.write(buffer);
+                if (solucionario) {
+                    String answerBuffer = current.getAnswer();
 
-                writer.write("\\newline " + "Answer:" + "\\newline " + answerBuffer);
+                    writer.write("\\newline " + "Answer:" + "\\newline " + answerBuffer);
+                }
+                writer.write("\\newpage ");
             }
-            writer.write("\\newpage ");
-        }
 
-        writer.write("\\textbf{Resources:}" + this.getSpecs() + "\\newpage");
-        // original write solution loop. Instead we went for a separate pdf
-        // writer.write("\\begin{solution}");
-        // for (int j = 0; j < num_questions; j++) {
-        // Question curr = questions.get(j);
-        // String buffer2 = "\\item " + curr.getAnswer();
-        // writer.write(buffer2);
-        // }
-        // ;
-        // writer.write("\\end{solution}");
-        writer.write("\\end{questions}");
-        writer.write("\\end{document}");
-        writer.close();
+            writer.write("\\textbf{Resources:}" + this.getSpecs() + "\\newpage");
+            // original write solution loop. Instead we went for a separate pdf
+            // writer.write("\\begin{solution}");
+            // for (int j = 0; j < num_questions; j++) {
+            // Question curr = questions.get(j);
+            // String buffer2 = "\\item " + curr.getAnswer();
+            // writer.write(buffer2);
+            // }
+            // ;
+            // writer.write("\\end{solution}");
+            writer.write("\\end{questions}");
+            writer.write("\\end{document}");
+            writer.close();
 
         } catch (IOException e) {
         }
@@ -234,4 +234,5 @@ public class Exam {
     public void setId(Long id) {
         this.id = id;
     }
+
 }

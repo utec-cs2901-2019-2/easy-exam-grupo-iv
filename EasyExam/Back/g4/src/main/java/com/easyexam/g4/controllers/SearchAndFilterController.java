@@ -58,7 +58,7 @@ public class SearchAndFilterController {
     }
     return response;
   }
-  @PostMapping("/savedquestions")
+  @PostMapping("/api/savedquestions")
   List<Long> savedq(@RequestBody SavedQuestionsRequest request) {
     List<Question> questions = teacherRepository.findById(request.email).get().getSelectedq();
     List<Long> response = new ArrayList<>();

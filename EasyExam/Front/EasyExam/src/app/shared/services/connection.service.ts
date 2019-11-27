@@ -16,6 +16,7 @@ import { Subcategory } from '../classes/subcategory';
 })
 export class ConnectionService {
   url = 'http://localhost:8080';
+  apiurl = '/api';
   loginurl = '/login';
   questionsurl = '/questions';
   categoriesurl = '/categories';
@@ -24,7 +25,9 @@ export class ConnectionService {
   savedqurl = '/savedquestions';
   loadurl = '/loadq';
   compileurl = '/compile';
+  getuserurl = '/log';
   forgoturl = '';
+  newquest = '/newquestion';
 
   constructor(private http: HttpClient) {}
   login(Email: string, Password: string) {
@@ -49,14 +52,21 @@ export class ConnectionService {
   }
 
   loadsavedq(Email: string) {
-    return this.http.post<number[]>(this.url + this.savedqurl, {email: Email});
+    return this.http.post<number[]>(this.url + this.apiurl + this.savedqurl, {email: Email});
   }
 
   savedata(response) {
-    return this.http.post(this.url + this.saveurl, response);
+    return this.http.post(this.url + this.apiurl + this.saveurl, response);
   }
 
   compile(response) {
-    return this.http.post<HttpResponse<Blob>>(this.url + this.compileurl, response);
+    return this.http.post<Blob>(this.url + this.apiurl + this.compileurl, response, { responseType: 'blob' as 'json' });
+  }
+  getuset(response) {
+    return this.http.post<{email: string; lastName: string; name: string; password: string; phone: string; isAdmin: boolean;
+      points: number; token: string}>(this.url + this.getuserurl, response);
+  }
+  newq(response) {
+    return this.http.post<number>(this.url +  this.apiurl + this.newquest, response);
   }
 }

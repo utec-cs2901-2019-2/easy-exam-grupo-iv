@@ -20,8 +20,9 @@
           <mat-datepicker #picker></mat-datepicker>
         </div>
         <div class="col-6 form-group">
-          <label for="categories">Categoria</label>
-          <select id="categories" class="form-control selectpicker" data-style="btn btn-link" [(ngModel)]="category">
+          <label>Categoria</label>
+          <select class="form-control selectpicker" data-style="btn btn-link" [(ngModel)]="category">
+            <option selected>Select an option</option>
             <option *ngFor="let cat of http.categories" [ngValue]="cat">{{ cat.name }}</option>
           </select>
         </div>
@@ -34,6 +35,7 @@
         <div class="col-6 form-group">
           <label>Subcategorias</label>
           <select class="form-control selectpicker" data-style="btn btn-link" [(ngModel)]="exam.subcategory">
+            <option selected>Select an option</option>
             <option *ngFor="let cat of category.subcategories" [ngValue]="cat.name" >{{ cat.name }}</option>
           </select>
         </div>
@@ -51,11 +53,11 @@
       <div class="row max">
         <div class="col-6 form-group">
           <label>Especificaciones para el Examen</label>
-          <textarea class="form-control"></textarea>
+          <textarea class="form-control"rows="10"></textarea>
         </div>
         <div class="col-6 form-group">
           <label>Normas en el Examen</label>
-          <textarea class="form-control"></textarea>
+          <textarea class="form-control"rows="10"></textarea>
         </div>
       </div>
     </div>

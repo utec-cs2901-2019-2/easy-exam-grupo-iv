@@ -15,9 +15,10 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	// https://mvnrepository.com/artifact/commons-io/commons-io
+	implementation 'org.springframework.security:spring-security-test'
+	implementation 'io.jsonwebtoken:jjwt:0.2'
+	implementation 'com.auth0:java-jwt:3.8.3'
 	compile group: 'commons-io', name: 'commons-io', version: '2.6'
-
 	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
 	runtimeOnly 'org.postgresql:postgresql'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {

@@ -9,9 +9,11 @@ import { HistoryComponent } from './views/principal/screens/history/history.comp
 import { SavedQuestionsComponent } from './views/principal/screens/saved-questions/saved-questions.component';
 import { NewexamComponent } from './views/principal/screens/newexam/newexam.component';
 import { PreviewComponent } from './views/principal/screens/preview/preview.component';
+import { NewquestionComponent } from './views/principal/screens/newquestion/newquestion.component';
 
 import { AuthGuardGuard } from './shared/guards/auth-guard.guard';
 import { LoggedGuardGuard } from './shared/guards/logged-guard.guard';
+import { PreviewGuard } from './shared/guards/preview.guard';
 
 const routes: Routes = [
   {
@@ -26,12 +28,12 @@ const routes: Routes = [
   },
   {
     path: '',
-    // canActivate: [LoggedGuardGuard],
+    canActivate: [LoggedGuardGuard],
     children: [
       {
         path: '',
         redirectTo: 'search',
-        pathMatch: 'full'
+        pathMatch: 'prefix'
       },
       {
         path: 'search',
@@ -55,8 +57,14 @@ const routes: Routes = [
       },
       {
         path: 'preview',
-        component: PreviewComponent
+        component: PreviewComponent,
+        canActivate: [PreviewGuard]
+      },
+      {
+        path: 'newquest',
+        component: NewquestionComponent
       }
+
     ]
   },
   {

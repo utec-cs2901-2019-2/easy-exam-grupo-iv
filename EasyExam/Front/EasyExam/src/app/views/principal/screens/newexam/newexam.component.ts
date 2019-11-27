@@ -47,6 +47,10 @@ export class NewexamComponent implements OnInit {
     });
   }
   savedata() {
+    if (this.http.user.points < 2) {
+      this.router.navigate(['/newquest']);
+      return;
+    }
     this.gen.exam = this.exam;
     this.router.navigate(['/preview']);
   }

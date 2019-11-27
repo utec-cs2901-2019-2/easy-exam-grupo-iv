@@ -18,14 +18,17 @@
             <div class="form-group">
             	<label>Password</label>
             	<input type="password" class="form-control" [(ngModel)]="user.password" name="password_login">
+            <!--
 							<small class="form-text text-muted"><a>Forgot your password?</a></small>
+            -->
             </div>
             <div class="row justify-content-center">
               <button type="submit" class="btn btn-primary fontsize col-4" (click)="login()">Sign In</button>
             </div>
             <div class="row justify-content-center">
-              <a class="col-2">Sign Up</a>
+              <a class="col-2" routerLink="/register">Sign Up</a>
             </div>
+            <!--
             <div class="row justify-content-center">
               <p class="fontsize">o</p>
             </div>
@@ -44,6 +47,7 @@
                 <i class="fa fa-facebook"></i> Login with Facebook
               </button>
             </div>
+            -->
           </form>
         </div>
       </div>

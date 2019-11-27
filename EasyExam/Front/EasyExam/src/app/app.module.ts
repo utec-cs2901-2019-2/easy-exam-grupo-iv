@@ -21,6 +21,7 @@ import { HistoryComponent } from './views/principal/screens/history/history.comp
 import { QuestiondialogComponent } from './views/principal/screens/shared/questiondialog/questiondialog.component';
 import { NewexamComponent } from './views/principal/screens/newexam/newexam.component';
 import { SavedqdialogComponent } from './views/principal/screens/shared/savedqdialog/savedqdialog.component';
+import { NewquestionComponent } from './views/principal/screens/newquestion/newquestion.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { SavedqdialogComponent } from './views/principal/screens/shared/savedqdi
     HistoryComponent,
     QuestiondialogComponent,
     NewexamComponent,
-    SavedqdialogComponent
+    SavedqdialogComponent,
+    NewquestionComponent,
   ],
   imports: [
     BrowserModule,

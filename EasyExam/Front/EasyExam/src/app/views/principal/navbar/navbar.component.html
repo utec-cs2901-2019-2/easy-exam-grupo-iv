@@ -1,7 +1,7 @@
 <div class="nav unselect">
   <div class="logo"><img src="https://i.ibb.co/qdRRdB0/Logo.png"></div>
   <div *ngIf="!auth.loggedIn()" class="score">32</div>
-  <div *ngIf="auth.loggedIn()" class="score">32</div>
+  <div *ngIf="auth.loggedIn()" class="score">{{ auth.user.points }}</div>
   <div class="user">
     <div *ngIf="!auth.loggedIn()" class="name">Nombre</div>
     <div *ngIf="auth.loggedIn()" class="name">{{ auth.user.email }}</div>
@@ -18,6 +18,7 @@
       <div class="logo"><i class="fa fa-list-alt"></i></div>
       <div class="name"><a>Preguntas guardadas</a></div>
     </div>
+    <!--
     <div class="roww" routerLink="/history" routerLinkActive="active">
       <div class="logo"><i class="fa fa-history"></i></div>
       <div class="name"><a>Historial</a></div>
@@ -26,9 +27,10 @@
       <div class="logo"><i class="fa fa-cog"></i></div>
       <div class="name"><a>Configuracion</a></div>
     </div>
+    -->
   </div>
   <div class="foot">
-    <div class="roww" routerLink="">
+    <div class="roww" routerLink="/newquest">
       <div class="logo"><i class="fa fa-plus"></i></div>
       <div class="name"><a>Subir Pregunta</a></div>
     </div>

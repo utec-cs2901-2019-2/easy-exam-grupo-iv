@@ -8,5 +8,7 @@ import { Exam } from '../interfaces/exam';
 export class LatexService {
   exam: Exam;
   scores: number[] = [];
-  constructor() { }
+  constructor() {
+    this.exam = null;
+  }
 }

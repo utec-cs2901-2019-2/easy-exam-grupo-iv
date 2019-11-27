@@ -13,6 +13,9 @@ export class AppComponent implements OnDestroy, OnInit {
   constructor(public http: HttpService, public auth: AuthService) {
     this.http.updatecategories();
     this.http.updatequestions(1);
+    if (this.auth.loggedIn()) {
+      this.auth.getuser();
+    }
   }
 
   ngOnDestroy() {

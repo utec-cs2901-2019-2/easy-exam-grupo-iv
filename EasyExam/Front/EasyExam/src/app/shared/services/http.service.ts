@@ -125,10 +125,11 @@ export class HttpService {
       scores: this.tex.scores,
       solution: false
     };
+    // console.log(JSON.stringify(request));
     this.connection.compile(request)
     .subscribe(
       (response) => {
-        const file = new Blob([response.body], { type: 'application/pdf'});
+        const file = new Blob([response], { type: 'application/pdf'});
         const fileURL = URL.createObjectURL(file);
         window.open(fileURL);
         fileSaver.saveAs(file, 'exam.pdf');
