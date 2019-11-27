@@ -19,11 +19,8 @@ Easy exam is a plataform that helps both students and teachers streamline the qu
     + Select question tags
     + Upload answers
 + Download exams 
-### Mods
-+ Ban users
-+ Delete questions
-+ Generate new tags
-+ Read reports
+
+
 
 ## Diagrams
 
@@ -54,9 +51,8 @@ Easy exam is a plataform that helps both students and teachers streamline the qu
  
  1. User: Someone who uses the plataform.
  2. Teacher: Someone who uploads questions or generates exams
- 3. Moderator: Someone who has the power to delete users and questions
- 4. Tags: Categories created to sort questions
- 5. Report: Complaint about a question, allows mod to take action
- 6. Rate: To give feedback on a question by liking or disliking
- 7. Score: The sum of all ratings on a question
+ 3. Tags: Categories created to sort questions
+ 4. Report: Complaint about a question, allows mod to take action
+ 5. Rate: To give feedback on a question by liking or disliking
+ 6. Score: The sum of all ratings on a question
 
