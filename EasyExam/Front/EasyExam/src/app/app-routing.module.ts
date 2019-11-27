@@ -33,7 +33,7 @@ const routes: Routes = [
       {
         path: '',
         redirectTo: 'search',
-        pathMatch: 'full'
+        pathMatch: 'prefix'
       },
       {
         path: 'search',
