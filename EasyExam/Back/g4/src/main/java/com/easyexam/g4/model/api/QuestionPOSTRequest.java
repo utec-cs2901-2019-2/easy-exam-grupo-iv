@@ -13,32 +13,4 @@ public class QuestionPOSTRequest {
     public String description; //done
     public List<Long> subcategories;
 
-
-    public String getCreatorID() {
-        return creatorID;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public Date getCreation_date() {
-        return creation_date;
-    }
-
-    public Boolean getAllowed() {
-        return allowed;
-    }
-
-    public String getAnswer() {
-        return answer;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public List<Long> getSubcategories() {
-        return subcategories;
-    }
 }
