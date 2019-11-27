@@ -71,7 +71,7 @@ public class ExamController {
         return toReturn;
 
     }
-    @GetMapping("/api/exam/id")
+    @GetMapping("/api/exams/id")
     public @ResponseBody
     ExamResponse ExamById(@RequestBody ExamRequest examRequest){
         ExamResponse toPush =new ExamResponse();

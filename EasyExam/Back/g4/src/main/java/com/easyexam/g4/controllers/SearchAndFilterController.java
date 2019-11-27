@@ -30,7 +30,7 @@ public class SearchAndFilterController {
   @Autowired
   TeacherRepository teacherRepository;
 
-  @PostMapping("/questions")
+  @PostMapping("/api/questions")
   QuestionResponse getQuestions(@RequestBody QuestionRequest request){
     QuestionResponse response = new QuestionResponse();
     List<Question> value = questionRepository.findAll();
@@ -48,7 +48,7 @@ public class SearchAndFilterController {
     }
     return response;
   }
-  @PostMapping("/categories")
+  @PostMapping("/api/categories")
   List<Category> getCategories() {
     List<Category> response = categoryRepository.findAll();
     for (Category i : response) {
