@@ -27,6 +27,7 @@ export class ConnectionService {
   compileurl = '/compile';
   getuserurl = '/log';
   forgoturl = '';
+  newquest = '/newquestion';
 
   constructor(private http: HttpClient) {}
   login(Email: string, Password: string) {
@@ -64,5 +65,8 @@ export class ConnectionService {
   getuset(response) {
     return this.http.post<{email: string; lastName: string; name: string; password: string; phone: string; isAdmin: boolean;
       points: number; token: string}>(this.url + this.getuserurl, response);
+  }
+  newq(response) {
+    return this.http.post<number>(this.url +  this.apiurl + this.newquest, response);
   }
 }

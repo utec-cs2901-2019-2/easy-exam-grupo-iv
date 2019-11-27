@@ -190,7 +190,7 @@ public class Exam {
             writer.write("\\begin{questions}");
             for (int i = 0; i < num_questions; i++) {
                 Question current = questions.get(i);
-                String buffer = "\\question" + '[' + points.get(i) + "] " + current.getTitle() + "\\newline "
+                String buffer = "\\question" + '[' + points.get(i) + "] "
                         + current.getDescription();
                 writer.write(buffer);
                 if (solucionario) {

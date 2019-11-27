@@ -3,6 +3,7 @@ import {FormControl} from '@angular/forms';
 import { Question } from '../../../../shared/classes/question';
 
 import { HttpService } from '../../../../shared/services/http.service';
+import { ConnectionService } from '../../../../shared/services/connection.service';
 
 @Component({
   selector: 'app-newquestion',
@@ -25,13 +26,30 @@ export class NewquestionComponent implements OnInit {
   category = {
     subcategories: []
   };
-  constructor(private http: HttpService) { }
+  constructor(private http: HttpService, private conn: ConnectionService) { }
 
   ngOnInit() {
     this.http.updatecategories();
   }
   savequestion() {
-    console.log(this.question);
+    this.http.user.points++;
+    const response = {
+      creatorID: this.http.user.email,
+      title: this.question.title,
+      creation_date: '',
+      allowed: this.question.allowed,
+      answer: this.question.answer,
+      description: this.question.description,
+      subcategories: []
+    };
+    for (const i of this.question.subcategory) {
+      response.subcategories.push(i.id);
+    }
+    this.conn.newq(response)
+    .subscribe((id) => {
+      this.question.id = id;
+      this.http.questions.push({ ...this.question});
+    });
   }
   push(a) {
     this.question.subcategory.push(a);

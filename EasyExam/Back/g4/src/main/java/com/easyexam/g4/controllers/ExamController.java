@@ -1,5 +1,7 @@
 package com.easyexam.g4.controllers;
 
+import com.easyexam.g4.model.Question;
+import com.easyexam.g4.model.repository.QuestionRepository;
 import org.apache.commons.io.IOUtils;
 import com.easyexam.g4.model.Exam;
 import com.easyexam.g4.model.Teacher;
@@ -27,6 +29,9 @@ public class ExamController {
     @Autowired
     TeacherRepository teacherRepository;
 
+    @Autowired
+    QuestionRepository questionRepository;
+
     @PostMapping(
             value = "/api/compile",
             produces = MediaType.APPLICATION_PDF_VALUE
@@ -35,6 +40,13 @@ public class ExamController {
     byte[] compile(@RequestBody CompileRequest request) throws IOException {
         Optional<Teacher> teacher = teacherRepository.findById(request.creator);
         Exam exam = new Exam(request.college, request.course, request.rules, request.specs, request.title, request.creation_date, request.exam_date, request.max_points, request.question_number, teacher.get(), request.questions);
+        for(Question i : request.questions)
+        {
+            Optional<Question> var = questionRepository.findById(i.getId());
+            Question item = var.get();
+            item.setScore(i.getScore());
+            questionRepository.save(item);
+        }
         examRepository.save(exam);
         exam.cook(Boolean.TRUE, request.scores);
 

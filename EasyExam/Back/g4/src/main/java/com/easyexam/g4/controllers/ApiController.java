@@ -40,7 +40,8 @@ public class ApiController {
     List<Question> selectedq = new ArrayList<>();
     for(Long i : request.savedQuestions) {
       Optional<Question> question = questionRepository.findById(i);
-      selectedq.add(question.get());
+      if(!question.isEmpty())
+        selectedq.add(question.get());
     }
     selected.setSelectedq(selectedq);
     teacherRepository.save(selected);

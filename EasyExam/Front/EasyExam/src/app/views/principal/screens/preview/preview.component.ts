@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { LatexService } from '../../../../shared/services/latex.service';
 
 import { HttpService } from '../../../../shared/services/http.service';
@@ -13,12 +14,10 @@ export class PreviewComponent implements OnInit, OnDestroy {
   selected: boolean[] = [];
   scores: number[] = [];
 
-  constructor(public tex: LatexService, public http: HttpService) {
-    console.log('Me Construyo');
+  constructor(public tex: LatexService, private router: Router, public http: HttpService) {
   }
 
   ngOnInit() {
-    console.log('Me Cargo');
     for (const i of this.tex.exam.questions) {
       this.selected.push(true);
     }
@@ -38,7 +37,20 @@ export class PreviewComponent implements OnInit, OnDestroy {
     this.selected[index] = false;
   }
   generate() {
+    if (this.http.user.points < 2) {
+      this.router.navigate(['/newquest']);
+      return;
+    }
+    this.http.user.points--;
     this.tex.scores = this.scores;
     this.http.generate();
+  }
+  puedo() {
+    for (const i of this.selected) {
+      if (i) {
+        return true;
+      }
+    }
+    return false;
   }
 }

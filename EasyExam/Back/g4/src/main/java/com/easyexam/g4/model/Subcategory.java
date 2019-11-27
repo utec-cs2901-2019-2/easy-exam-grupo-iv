@@ -9,9 +9,9 @@ import java.util.List;
 @Entity
 public class Subcategory {
     @Id
-    private long id;
+    public long id;
 
-    private String name;
+    public String name;
 
     @ManyToOne
     private Category category;

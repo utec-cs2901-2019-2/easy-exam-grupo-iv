@@ -2,6 +2,8 @@ package com.easyexam.g4.controllers;
 
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.auth0.jwt.JWT;
+import com.easyexam.g4.model.Exam;
+import com.easyexam.g4.model.Question;
 import com.easyexam.g4.model.Teacher;
 import com.easyexam.g4.model.api.*;
 import com.easyexam.g4.model.repository.ExamRepository;
@@ -35,6 +37,21 @@ public class AuthController {
     Optional<Teacher> value = teacherRepository.findById(request.email);
     if(!value.isEmpty()) {
       if(value.get().getPassword().equals(request.password)) {
+        Teacher user = value.get();
+        int score = 0;
+        for(Question i : user.getQuestions()) {
+          score += i.getScore();
+        }
+        score = (int)Math.log(score)+1;
+        for(Exam i : user.getExams()) {
+          score -= 2;
+        }
+        if(score < 0)
+        {
+          score = 0;
+        }
+        user.setPoints(score);
+        teacherRepository.save(user);
         final Instant now = Instant.now();
         final String jwt = Jwts.builder()
                 .setSubject(request.email)
@@ -42,7 +59,7 @@ public class AuthController {
                 .setExpiration(Date.from(now.plus(1, ChronoUnit.DAYS)))
                 .signWith(SignatureAlgorithm.HS256, TextCodec.BASE64.encode(secret))
                 .compact();
-        return new LoginResponse(value.get(), jwt);
+        return new LoginResponse(user, jwt);
       } else {
         return new LoginResponse(new Teacher("","","","","", false), "");
       }
@@ -68,10 +85,21 @@ public class AuthController {
     DecodedJWT jwt = JWT.decode(request.token);
     String email = jwt.getSubject();
     Optional<Teacher> value = teacherRepository.findById(email);
+    Teacher user = value.get();
+    int score = 0;
+    for(Question i : user.getQuestions()) {
+      score += i.getScore()+1;
+    }
+    score = (int)Math.log(score)+1;
+    for(Exam i : user.getExams()) {
+      score -= 2;
+    }
+    if(score < 0)
+    {
+      score = 0;
+    }
+    user.setPoints(score);
+    teacherRepository.save(user);
     return new LoginResponse(value.get(), jwt.getToken());
   }
-
-
-
-
 }

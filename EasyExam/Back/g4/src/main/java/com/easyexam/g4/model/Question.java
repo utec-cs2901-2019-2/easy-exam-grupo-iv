@@ -125,4 +125,11 @@ public class Question {
         this.saved = saved;
     }
 
+    public void setScore(Integer score) {
+        this.score = score;
+    }
+
+    public List<Teacher> getSaved() {
+        return saved;
+    }
 }

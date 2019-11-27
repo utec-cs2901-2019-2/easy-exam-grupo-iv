@@ -23,7 +23,7 @@ public class QuestionController {
     QuestionRepository questionRepository;
     @Autowired
     TeacherRepository teacherRepository;
-    @PostMapping("/questionPOST") public void AddQuestion(@RequestBody QuestionPOSTRequest questionRequest){
+    @PostMapping("/api/newquestion") public Long AddQuestion(@RequestBody QuestionPOSTRequest questionRequest){
         Question myQuestion = new Question();
         myQuestion.setAnswer(questionRequest.answer);
         myQuestion.setCreation_date(questionRequest.creation_date);
@@ -39,5 +39,6 @@ public class QuestionController {
         }
         myQuestion.setSubcategory(subs);
         questionRepository.save(myQuestion);
+        return myQuestion.getId();
     }
 }

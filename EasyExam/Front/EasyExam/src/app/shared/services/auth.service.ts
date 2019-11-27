@@ -122,6 +122,7 @@ A-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$`;
         this.user.password = '';
         this.http.user = this.user;
         localStorage.setItem('access_token', data.token);
+        this.http.loadsavedq();
       }
     );
   }
