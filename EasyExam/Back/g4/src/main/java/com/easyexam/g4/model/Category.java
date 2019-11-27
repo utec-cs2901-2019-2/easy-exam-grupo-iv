@@ -28,4 +28,12 @@ public class Category {
     public List<Subcategory> getSubcategories() {
         return subcategories;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setSubcategories(List<Subcategory> subcategories) {
+        this.subcategories = subcategories;
+    }
 }

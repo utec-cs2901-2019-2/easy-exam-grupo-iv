@@ -41,4 +41,16 @@ public class Subcategory {
     public void setQuestions(List<Question> questions) {
         this.questions = questions;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public List<Question> getQuestions() {
+        return questions;
+    }
 }
