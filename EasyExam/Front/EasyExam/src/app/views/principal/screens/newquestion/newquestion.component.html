@@ -21,7 +21,7 @@
           </div>
           <mat-form-field class="form-group col-6">
             <label>Subcategory</label>
-            <mat-select [(ngModel)]="question.subcategory" multiple>
+            <mat-select [(ngModel)]="question.subcategory" name="subcat" multiple>
               <mat-option *ngFor="let cat of category.subcategories" [value]="cat">{{cat.name}}</mat-option>
             </mat-select>
           </mat-form-field>
