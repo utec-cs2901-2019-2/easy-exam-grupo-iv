@@ -15,7 +15,7 @@ import { Subcategory } from '../classes/subcategory';
   providedIn: 'root'
 })
 export class ConnectionService {
-  url = 'http://localhost:8080';
+  url = 'http://52.67.212.136:8080';
   apiurl = '/api';
   loginurl = '/login';
   questionsurl = '/questions';

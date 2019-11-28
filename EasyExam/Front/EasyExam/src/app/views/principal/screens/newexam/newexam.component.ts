@@ -30,7 +30,7 @@ export class NewexamComponent implements OnInit {
     creator: this.http.user.email,
   };
   category = {
-    subcategory: []
+    subcategories: []
   };
   constructor(public http: HttpService, private router: Router, private dialog: MatDialog, private gen: LatexService) {
   }

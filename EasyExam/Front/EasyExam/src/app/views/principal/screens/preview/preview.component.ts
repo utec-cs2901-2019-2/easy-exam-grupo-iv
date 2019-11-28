@@ -24,6 +24,7 @@ export class PreviewComponent implements OnInit, OnDestroy {
     for (const i of this.tex.exam.questions) {
       this.scores.push(0);
     }
+    this.tex.exam.question_number = this.scores.length;
   }
   ngOnDestroy() {
     this.tex.exam = null;
