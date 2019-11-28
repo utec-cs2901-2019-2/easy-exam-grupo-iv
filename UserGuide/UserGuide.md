@@ -15,23 +15,15 @@ EasyExam te brinda la solucion a todos los problemas de crear un examen, te brin
 ### **Functional requirements**
 * Como usuario debo de ser capaz de Iniciar Sesion correctamente de forma que pueda continuar mi uso de la herramienta
 * Como usuario debo de ser capaz de Registrarme correctamente de forma que pueda comenzar con mi uso de la herramienta
-* Como usuario debo de ser capaz de Recuperar mi contrasenha de forma que pueda recuperar mi cuenta
 * Como profesor puedo subir mis preguntas a la plataforma de tal forma que contribuya con el crecimiento de la misma
 * Como profesor puedo calificar una pregunta de tal forma que mejore e indique que preguntas son mas serias que otras
-* Como usuario puedo editar mi perfil de tal forma que mi informacion siempre este actualizada
 * Como usuario puedo ver las calificaciones se han realizado de tal forma que sepa que preguntas no son serias y cuales si
-* Como administrador puedo banear cuentas de tal forma que no hayan cuentas falsas
-* Como administrador puedo eliminar preguntas que considere no sean correctas
-* Como usuario debo ser capaz de reportar a otras cuentas de tal forma que avise al sistema si hay alguna cuenta falsa
-* Como profesor debo de ser capaz de descargar mis examenes en formato pdf de tal forma que este pueda ser mejor manejado y directamente impreso para su uso
-* Como profesor puedo ver una preview de las preguntas de tal forma que me asegure que todo este bien colocado
-* Como administrador puedo ver los reportes de los usuarios acerca de otras cuentas y otras preguntas
-* Como profesor puedo filtrar las preguntas a la hora de hacer una busqueda de las mismas para agregarlas a mi examen
+* Como usuario debo de ser capaz de descargar mis examenes en formato pdf de tal forma que este pueda ser mejor manejado y directamente impreso para su uso
+* Como usuario puedo ver una preview de las preguntas de tal forma que me asegure que todo este bien colocado
 
 
 ### **Non-functional requirements**
 * Como profesor puedo crear un examen totalmente personalizado con los temas que yo elija
-* Como usuario debo de tener una pagina responsive
 * Como usuario debo de poder acceder al lugar el 90% de las veces
 * Como usuario debo de poder descargar examenes rapidamente
 * Como usuario debo de tener transiciones rapidas entre cada pagina
@@ -54,59 +46,6 @@ EasyExam te brinda la solucion a todos los problemas de crear un examen, te brin
 * Post exercises 
 * Review exercises
 * Download exam/answers
-
-#### **Admin**
-* Mostrar las preguntas en revision
-  * Eliminar las preguntas falsas o erroneas
-
-## **Use Cases**
- ## 1. _Moderation_
-
-* **Software System**: EasyExam (EE)
-* **Use case**: UC01 - Moderation
-* **Actor**: Admin,System(EE),Database
-* **Preconditions**: 
-    * Admin is logged in. 
-    
-* **Use case**:
-    1. System sorts questions by ranking.
-    2. Admin selects question.
-    3. Admin reads question report.
-    4. Admin reads question.
-    5. Admin deletes question.
-    6. Question is deleted from the Database.
-    7. Use case ends.
-
-<img src="img/moderation.jpeg">
-
-## 2. _Banning users_
-
-* **Software System**: EasyExam (EE)
-* **Use case**: UC02 - Banning users
-* **Actor**: User,Admin ,System(EE),Database
-* **Preconditions**: 
-    * User account currently exists. 
-    * User's questions have been reported.
-    
-* **Use case**:
-    1. Admin reads the reported user's questions.
-    2. Admin approves ban.
-    3. User account gets deleted from database.
-
-<img src="img/Ban_User.jpeg">
-
-## 3. _Password recovery_
-* **Software System**: EasyExam (EE)
-* **Use case**: UC03 - Password recovery
-* **Actor**: User,System(EE) 
-* **Use case**:
-    1. User selects option forget password.
-    2. User write his email.
-    3. User opens a message with his new password.
-    5. User use his new password to login.
-    6. Use case ends.
-
-<img src="img/Recovery Password.png">
 
 ## **Glossary**
  1. User: Someone who uses the plataform.

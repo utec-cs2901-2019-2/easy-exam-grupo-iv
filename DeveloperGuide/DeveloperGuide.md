@@ -10,7 +10,6 @@ Easy exam is a plataform that helps both students and teachers streamline the qu
 ### Teacher
 + Observe questions
     + Select questions
-    + Report questions
     + Rate question
     + See answers
 + Generate exam
