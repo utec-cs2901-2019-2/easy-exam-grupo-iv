@@ -30,6 +30,8 @@ public class AuthController {
 
   @Autowired
   TeacherRepository teacherRepository;
+
+  @Autowired
   ExamRepository examRepository;
 
   @PostMapping("/login")
