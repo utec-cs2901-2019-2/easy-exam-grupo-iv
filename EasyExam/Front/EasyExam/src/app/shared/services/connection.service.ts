@@ -26,7 +26,6 @@ export class ConnectionService {
   loadurl = '/loadq';
   compileurl = '/compile';
   getuserurl = '/log';
-  forgoturl = '';
   newquest = '/newquestion';
 
   constructor(private http: HttpClient) {}
@@ -37,10 +36,6 @@ export class ConnectionService {
 
   register(Name: string, Email: string, Password: string) {
     return this.http.post<{token: string}>(this.url + this.registerurl, {name: Name, email: Email, password: Password});
-  }
-
-  forgotPassword(Email: string) {
-    return this.http.post(this.url + this.registerurl, { email: Email });
   }
 
   updatequestions(index: number) {

@@ -36,12 +36,6 @@ export class HttpService {
     );
   }
 
-  forgotPassword(Email: string) {
-    this.connection.forgotPassword(Email).subscribe();
-  }
-
-  getpdf(texstring: string, savevalue: Exam) {}
-
   updatequestions(index: number) {
     if (index > this.numpages) {
       console.log('Overflow');
