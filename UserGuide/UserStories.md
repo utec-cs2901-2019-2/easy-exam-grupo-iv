@@ -1,14 +1,10 @@
 #### Must have
 * Como usuario debo de ser capaz de Iniciar Sesion correctamente de forma que pueda continuar mi uso de la herramienta
 * Como usuario debo de ser capaz de Registrarme correctamente de forma que pueda comenzar con mi uso de la herramienta
-* Como usuario debo de ser capaz de Recuperar mi contrasenha de forma que pueda recuperar mi cuenta
 * Como profesor puedo subir mis preguntas a la plataforma de tal forma que contribuya con el crecimiento de la misma
 * Como profesor puedo crear un examen totalmente personalizado con los temas que yo elija
 * Como profesor puedo calificar una pregunta de tal forma que mejore e indique que preguntas son mas serias que otras
-* Como usuario puedo editar mi perfil de tal forma que mi informacion siempre este actualizada
 * Como usuario puedo ver las calificaciones se han realizado de tal forma que sepa que preguntas no son serias y cuales si
-* Como administrador puedo banear cuentas de tal forma que no hayan cuentas falsas
-* Como administrador puedo eliminar preguntas que considere no sean correctas
 * Como usuario debo de poder acceder al lugar el 90% de las veces
 * Como usuario debo de tener transiciones rapidas entre cada pagina
 

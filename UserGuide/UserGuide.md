@@ -47,6 +47,24 @@ EasyExam te brinda la solucion a todos los problemas de crear un examen, te brin
 * Review exercises
 * Download exam/answers
 
+## **Use Cases**
+ ## 1. _Create Exam_
+
+* **Software System**: EasyExam (EE)
+* **Use case**: UC01 - Create Exam
+* **Actor**: Admin,System(EE),Database
+* **Preconditions**: 
+    * User is logged in. 
+    
+* **Use case**:
+    1. User complete the create form.
+    2. System show saved questions.
+    3. User select questions.
+    4. User preview questions.
+    5. User rate questions.
+    6. User download exam.
+    Use case ends.
+
 ## **Glossary**
  1. User: Someone who uses the plataform.
  2. Teacher: Someone who uploads questions or generates exams
