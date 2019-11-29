@@ -52,7 +52,7 @@ EasyExam te brinda la solucion a todos los problemas de crear un examen, te brin
 
 * **Software System**: EasyExam (EE)
 * **Use case**: UC01 - Create Exam
-* **Actor**: Admin,System(EE),Database
+* **Actor**: User,System(EE)
 * **Preconditions**: 
     * User is logged in. 
     
